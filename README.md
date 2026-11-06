@@ -12,7 +12,7 @@ TagKit is part of the Tag family. Its HTML is styled by [TagBrush.css](https://g
 
 **Snippets** (`snippets/`): hero, feature grid, pricing table, testimonials, FAQ, card grid, stat tiles, page header, data table, search bar, confirm dialog, user menu, contact form, callouts, sidebar layout, docs layout, footer columns. Each file starts with a comment that says what it is and where it goes. Most go inside `<main>`; ones marked `(body)` are page-level.
 
-**Themes** (`themes/`): a [Pandoc template](themes/pandoc/) that turns Markdown, Word, or AI-written documents into a styled page with one command.
+**Themes**: a [Pandoc template](themes/pandoc/) that turns Markdown, Word, or AI-written documents into a styled page with one command, and a [Jekyll theme for GitHub Pages](https://github.com/kovirlabs/tagkit-jekyll) used with one config line (`remote_theme: kovirlabs/tagkit-jekyll`).
 
 ## Every piece is tested
 
