@@ -11,7 +11,21 @@
 - A snippet goes inside `<main>` of a page that already has them, unless it is marked page-level, in which case it replaces or sits beside the page's own `<header>`, `<main>`, `<aside>`, or `<footer>` directly in `<body>`.
 - Ids in a snippet (`orders-table`, `delete-project`, `account-menu`) must stay unique: rename them, and every attribute that points at them (`aria-controls`, `commandfor`), when you use a snippet twice.
 - Don't add classes, wrapper `<div>`s, or CSS for layout. If something looks wrong, check the HTML against the TagBrush.css guide instead.
-- Run `npx tagcheck page.html` when you are done.
+- Run `npx @kovirlabs/tagcheck page.html` when you are done.
+
+### Build-time includes
+
+Share a header, nav, and footer between static pages without a framework. In each page, put an include comment where the piece goes, and keep the pieces in a folder whose name starts with `_`:
+
+```html
+<body>
+<!--#include file="_includes/header.html" -->
+<main>…</main>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+```
+
+Then build: `npx @kovirlabs/tagkit build site/ public/` (`--check` also runs TagCheck). `file="…"` is relative to the page and `virtual="/…"` to the site folder. Pages get their includes filled in; other files are copied; names starting with `_` are left out. Links to the page being built get `aria-current="page"`, and root links (`/about.html`) in included pieces become relative, so write links in shared pieces from the site root. Don't use JavaScript or iframes to include headers and footers.
 
 ### Themes
 

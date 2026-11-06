@@ -14,6 +14,31 @@ TagKit is part of the Tag family. Its HTML is styled by [TagBrush.css](https://g
 
 **Themes**: a [Pandoc template](themes/pandoc/) that turns Markdown, Word, or AI-written documents into a styled page with one command, and a [Jekyll theme for GitHub Pages](https://github.com/kovirlabs/tagkit-jekyll) used with one config line (`remote_theme: kovirlabs/tagkit-jekyll`).
 
+## Build-time includes
+
+Write each page as plain HTML and keep the shared pieces in one place:
+
+```html
+<body>
+<!--#include file="_includes/header.html" -->
+<main>…</main>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+```
+
+```sh
+npx @kovirlabs/tagkit build site/ public/            # add --check to run TagCheck on the result, --watch to rebuild on changes
+```
+
+The include comments are the server-side include syntax web servers already understand (`file` is relative to the page, `virtual` to the site folder), so there's nothing new to learn and the source pages stay valid HTML. The output is plain HTML with no script needed:
+
+- Pages (`.html`) get their includes filled in, nested includes too. Other files are copied. Files and folders whose names start with `_` are left out.
+- Links to the page being built get `aria-current="page"`, so TagBrush.css shows the current page in the nav without JavaScript.
+- Root links in included pieces (`/about.html`) become relative (`../about.html`), so the site works from any folder, from `file://`, and from a GitHub Pages project URL.
+- A missing include or an include loop is reported with the file and line, and the exit code is 1.
+
+From code: `import { build } from '@kovirlabs/tagkit'; build('site', 'public')`.
+
 ## Every piece is tested
 
 - TagCheck reports no errors and no warnings.
@@ -25,14 +50,14 @@ Tested with TagBrush.css 1.1.0 and TagAction 0.1.0.
 
 ## Coming next
 
-Build-time includes (a small CLI that stitches a shared header, footer, and nav into static pages) and more platform themes (MkDocs, Hugo, Eleventy, WordPress), as planned in the [Tag family spec](https://github.com/kovirlabs/tagstack/blob/main/Spec.md).
+More platform themes (MkDocs, Hugo, Eleventy, a stylesheet for AI chat output, WordPress), as planned in the [Tag family spec](https://github.com/kovirlabs/tagstack/blob/main/Spec.md).
 
 ## Development
 
 ```sh
 npm install
 npm run build   # preview/, snippets.json, index.html, llms.txt catalog, ai/
-npm test
+npm test        # set PANDOC to a command that runs Pandoc (for example through Docker) if it isn't installed
 ```
 
 Edit `snippets/` and `templates/`; everything else is generated. To add a snippet, create `snippets/<name>.html` starting with `<!-- Name: What it is. -->` (or `<!-- Name (body): … -->` for page-level pieces), run the build, and run the tests.

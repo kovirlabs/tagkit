@@ -3,7 +3,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { checkFiles } from 'tagcheck';
+import { checkFiles } from '@kovirlabs/tagcheck';
 
 // Pandoc on PATH, or a command in PANDOC (for example a Docker wrapper).
 const PANDOC = (process.env.PANDOC ?? 'pandoc').split(' ');

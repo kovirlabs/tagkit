@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { checkFiles } from 'tagcheck';
+import { checkFiles } from '@kovirlabs/tagcheck';
 
 const TEMPLATES = readdirSync('templates').filter((f) => f.endsWith('.html')).map((f) => `templates/${f}`);
 const PREVIEWS = readdirSync('preview').filter((f) => f.endsWith('.html')).map((f) => `preview/${f}`);

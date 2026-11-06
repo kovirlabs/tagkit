@@ -2,10 +2,13 @@
 
 ## 0.1.0 (unreleased)
 
+Published as `@kovirlabs/tagkit` (the unscoped `tagkit` name on npm belongs to someone else); the command is still `tagkit`.
+
 First version. Tested with TagBrush.css 1.1.0 and TagAction 0.1.0.
 
 - Six page templates: landing, dashboard, docs, blog post, sign-up, admin table.
 - Seventeen snippets: hero, feature grid, pricing, testimonials, FAQ, card grid, stat tiles, page header, data table, search bar, confirm dialog, user menu, contact form, callouts, sidebar layout, docs layout, footer columns.
+- `npx @kovirlabs/tagkit build`: build-time includes with server-side include comments (`<!--#include file="…" -->`), marking the current page with `aria-current` and making root links in shared pieces relative. `--check` runs TagCheck; `--watch` rebuilds on changes.
 - A Pandoc template (`themes/pandoc/`) for Markdown, Word, and other documents, tested with real Pandoc and TagCheck.
 - A Jekyll theme for GitHub Pages, in its own repository so `remote_theme` can use it: kovirlabs/tagkit-jekyll.
 - A gallery page, preview pages, `snippets.json`, and `llms.txt` with the catalog, plus a Claude Code skill, a Cursor rule, and an AGENTS.md section generated from it.

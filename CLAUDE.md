@@ -4,7 +4,7 @@ Guidance for Claude Code working in kovirlabs/tagkit. See the Tag Family Ecosyst
 
 ## What this project is
 
-TagKit holds copy-paste page templates and snippets in plain semantic HTML for TagBrush.css and TagAction. Later: build-time includes and platform themes.
+TagKit holds copy-paste page templates and snippets in plain semantic HTML for TagBrush.css and TagAction, the `tagkit build` include CLI (`src/include.mjs`, `bin/tagkit.mjs`, no runtime dependencies), and platform themes (Pandoc here; Jekyll in kovirlabs/tagkit-jekyll).
 
 ## Rules
 

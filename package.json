@@ -1,7 +1,7 @@
 {
-  "name": "tagkit",
+  "name": "@kovirlabs/tagkit",
   "version": "0.1.0",
-  "description": "Copy-paste page templates and snippets in plain semantic HTML, styled by TagBrush.css, enhanced by TagAction, and checked by TagCheck. No classes to learn, no framework, no build step.",
+  "description": "Copy-paste page templates and snippets in plain semantic HTML, build-time includes for static sites, and Pandoc and Jekyll themes. Styled by TagBrush.css, enhanced by TagAction, checked by TagCheck. No classes to learn, no framework.",
   "keywords": [
     "html",
     "templates",
@@ -23,8 +23,11 @@
   "license": "Apache-2.0",
   "type": "module",
   "files": [
+    "bin/",
+    "src/",
     "templates/",
     "snippets/",
+    "themes/",
     "snippets.json",
     "llms.txt",
     "ai/"
@@ -35,9 +38,22 @@
     "test": "playwright test"
   },
   "devDependencies": {
+    "@kovirlabs/tagcheck": "git+https://github.com/kovirlabs/tagcheck.git",
     "@playwright/test": "1.64.1",
     "tagaction": "git+https://github.com/kovirlabs/tagaction.git",
-    "tagbrush": "1.1.0",
-    "tagcheck": "github:kovirlabs/tagcheck"
+    "tagbrush": "1.1.0"
+  },
+  "bin": {
+    "tagkit": "bin/tagkit.mjs"
+  },
+  "exports": {
+    ".": "./src/include.mjs",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
