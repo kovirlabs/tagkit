@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docs layout · TagKit preview</title>
+<meta name="description" content="a docs page with breadcrumbs, a generated table of contents that follows the scroll, heading anchor links, copy buttons on code, and previous/next links.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<header>
+  <nav><strong>shipit docs</strong><ul><li><a href="/docs">Guide</a></li><li><a href="/docs/cli">CLI</a></li></ul></nav>
+</header>
+<main>
+  <aside><nav data-tag-toc aria-label="On this page"></nav></aside>
+  <article>
+    <nav aria-label="Breadcrumb"><ol><li><a href="/docs">Docs</a></li><li><a aria-current="page">Install</a></li></ol></nav>
+    <h1>Install shipit</h1>
+    <p>shipit deploys a folder of static files with one command.</p>
+    <h2 id="requirements">Requirements</h2>
+    <p>Node.js 20 or later, and an account on your host.</p>
+    <h2 id="install">Install</h2>
+    <pre><code>npm install --global shipit</code></pre>
+    <h3 id="verify">Check the install</h3>
+    <pre><code>shipit --version</code></pre>
+    <h2 id="first-deploy">Your first deploy</h2>
+    <p>Run <code>shipit</code> in the folder you want to publish. Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to cancel.</p>
+    <aside><strong>Tip:</strong> Add <code>--dry-run</code> to see what would be uploaded.</aside>
+    <nav aria-label="Pagination">
+      <ul>
+        <li><a rel="prev" href="/docs">← Introduction</a></li>
+        <li><a rel="next" href="/docs/configure">Configure →</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+</body>
+</html>

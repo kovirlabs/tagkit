@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TagKit: templates and snippets in plain HTML</title>
+<meta name="description" content="Copy-paste page templates and snippets for TagBrush.css and TagAction.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<header>
+  <nav><strong>TagKit</strong><ul><li><a href="llms.txt">llms.txt</a></li><li><a href="https://github.com/kovirlabs/tagkit">GitHub</a></li><li><a href="https://kovirlabs.github.io/tagstack/">The Tag family</a></li></ul></nav>
+  <hgroup>
+    <h1>Templates and snippets in plain HTML</h1>
+    <p>Copy the HTML. TagBrush.css styles it, TagAction makes it behave, and every piece passes TagCheck.</p>
+  </hgroup>
+</header>
+<main>
+  <aside><nav data-tag-toc aria-label="On this page"></nav></aside>
+  <article>
+    <h2 id="templates">Page templates</h2>
+    <p>Complete pages. Open one, then copy its source.</p>
+    <ul>
+      <li><a href="templates/admin-table.html">Admin table</a>: a page to manage records, with breadcrumbs, a title row with an action, a filter box, a sortable table with status badges, and an "invite" form in a modal dialog.</li>
+      <li><a href="templates/blog-post.html">Blog post</a>: an article with author and date, a lead image that enlarges, sections with anchor links, a pull quote, code with a copy button, a sortable table, a callout, and related posts.</li>
+      <li><a href="templates/dashboard.html">Dashboard</a>: an app page with a full-height sidebar, a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list.</li>
+      <li><a href="templates/docs.html">Docs page</a>: breadcrumbs, a generated table of contents that follows the scroll, heading anchor links, code with copy buttons, a tip callout, and previous/next links.</li>
+      <li><a href="templates/landing.html">Landing page</a>: a hero with a picture, a feature grid, pricing plans, testimonials, an FAQ accordion, a call to action, and a footer with link columns.</li>
+      <li><a href="templates/signup.html">Sign-up page</a>: a single-form page with help text, a password show/hide toggle, checkboxes, a switch, a character counter, and validation messages under each field.</li>
+    </ul>
+    <h2 id="snippets">Snippets</h2>
+    <p>Pieces to paste into a page that already links TagBrush.css (and TagAction, for the behaviors).</p>
+    <h3 id="callout">Callouts</h3>
+    <p>highlighted notes inside an article. A bold first word labels them; data-tone colors them. <a href="preview/callout.html">Preview the callouts</a>.</p>
+    <pre><code>&lt;article&gt;
+  &lt;h2&gt;Before you deploy&lt;/h2&gt;
+  &lt;p&gt;Check that your environment variables are set in the dashboard.&lt;/p&gt;
+  &lt;aside&gt;&lt;strong&gt;Note:&lt;/strong&gt; Changes to variables take effect on the next deploy.&lt;/aside&gt;
+  &lt;aside data-tone="warning"&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Deleting a variable can break a running site.&lt;/aside&gt;
+&lt;/article&gt;</code></pre>
+    <h3 id="card-grid">Card grid</h3>
+    <p>a section of linked cards, such as blog posts, projects, or products. Each card is an &lt;article&gt;. <a href="preview/card-grid.html">Preview the card grid</a>.</p>
+    <pre><code>&lt;section&gt;
+  &lt;h2&gt;Recent posts&lt;/h2&gt;
+  &lt;article&gt;
+    &lt;img src="https://picsum.photos/id/1043/600/340" alt="A desk with a notebook and a laptop" width="600" height="340"&gt;
+    &lt;h3&gt;&lt;a href="/blog/pricing-by-the-day"&gt;Why I price by the day&lt;/a&gt;&lt;/h3&gt;
+    &lt;p&gt;Hourly rates punish you for getting faster. Here's what changed when I stopped using them.&lt;/p&gt;
+    &lt;footer&gt;&lt;time datetime="2026-10-28"&gt;October 28, 2026&lt;/time&gt;&lt;/footer&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+    &lt;img src="https://picsum.photos/id/1060/600/340" alt="Coffee being poured into a cup" width="600" height="340"&gt;
+    &lt;h3&gt;&lt;a href="/blog/four-day-week"&gt;A year of four-day weeks&lt;/a&gt;&lt;/h3&gt;
+    &lt;p&gt;What I lost, what I gained, and the one rule that made it stick.&lt;/p&gt;
+    &lt;footer&gt;&lt;time datetime="2026-10-14"&gt;October 14, 2026&lt;/time&gt;&lt;/footer&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+    &lt;img src="https://picsum.photos/id/1073/600/340" alt="A stack of books on a table" width="600" height="340"&gt;
+    &lt;h3&gt;&lt;a href="/blog/contracts"&gt;Five clauses every contract needs&lt;/a&gt;&lt;/h3&gt;
+    &lt;p&gt;Plain-language wording you can copy, from payment terms to kill fees.&lt;/p&gt;
+    &lt;footer&gt;&lt;time datetime="2026-09-30"&gt;September 30, 2026&lt;/time&gt;&lt;/footer&gt;
+  &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+    <h3 id="confirm-dialog">Confirm dialog</h3>
+    <p>a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it. <a href="preview/confirm-dialog.html">Preview the confirm dialog</a>.</p>
+    <pre><code>&lt;button class="secondary" commandfor="delete-project" command="show-modal"&gt;Delete project&lt;/button&gt;
+&lt;dialog id="delete-project"&gt;
+  &lt;form method="post" action="/projects/42/delete"&gt;
+    &lt;header&gt;
+      &lt;h2&gt;Delete "Website redesign"?&lt;/h2&gt;
+      &lt;button type="button" commandfor="delete-project" command="close" aria-label="Close"&gt;✕&lt;/button&gt;
+    &lt;/header&gt;
+    &lt;p&gt;This deletes the project and its 128 time entries. It can't be undone.&lt;/p&gt;
+    &lt;footer&gt;
+      &lt;button type="button" class="secondary" commandfor="delete-project" command="close"&gt;Cancel&lt;/button&gt;
+      &lt;button&gt;Delete project&lt;/button&gt;
+    &lt;/footer&gt;
+  &lt;/form&gt;
+&lt;/dialog&gt;</code></pre>
+    <h3 id="contact-form">Contact form</h3>
+    <p>labeled fields with help text, validation messages shown under each field, a character counter, and a busy submit button. <a href="preview/contact-form.html">Preview the contact form</a>.</p>
+    <pre><code>&lt;form action="/contact" method="post"&gt;
+  &lt;label for="contact-name"&gt;Name&lt;/label&gt;
+  &lt;input id="contact-name" name="name" autocomplete="name" required&gt;
+  &lt;label for="contact-email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="contact-email" name="email" autocomplete="email" required&gt;
+  &lt;small&gt;We reply within one working day.&lt;/small&gt;
+  &lt;label for="contact-topic"&gt;Topic&lt;/label&gt;
+  &lt;select id="contact-topic" name="topic"&gt;
+    &lt;option&gt;A question about pricing&lt;/option&gt;
+    &lt;option&gt;Help with my account&lt;/option&gt;
+    &lt;option&gt;Something else&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;label for="contact-message"&gt;Message&lt;/label&gt;
+  &lt;textarea id="contact-message" name="message" maxlength="1000" required&gt;&lt;/textarea&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="copy"&gt; Send me a copy&lt;/label&gt;
+  &lt;button&gt;Send message&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    <h3 id="data-table">Data table</h3>
+    <p>sortable columns (click a header), a filter box that hides rows as you type, and status badges. Sort values go in &lt;data value&gt; and &lt;time datetime&gt;. <a href="preview/data-table.html">Preview the data table</a>.</p>
+    <pre><code>&lt;search&gt;
+  &lt;input type="search" aria-label="Filter orders" aria-controls="orders-table" placeholder="Filter orders…" hidden&gt;
+&lt;/search&gt;
+&lt;figure&gt;
+  &lt;table id="orders-table" class="striped"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Order&lt;/th&gt;&lt;th&gt;Customer&lt;/th&gt;&lt;th&gt;Placed&lt;/th&gt;&lt;th&gt;Total&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;a href="/orders/1042"&gt;#1042&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Maya Lin&lt;/td&gt;&lt;td&gt;&lt;time datetime="2026-11-05"&gt;Nov 5&lt;/time&gt;&lt;/td&gt;&lt;td&gt;&lt;data value="1240"&gt;$1,240.00&lt;/data&gt;&lt;/td&gt;&lt;td&gt;&lt;mark data-tone="success"&gt;Paid&lt;/mark&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;a href="/orders/1041"&gt;#1041&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Alex Chen&lt;/td&gt;&lt;td&gt;&lt;time datetime="2026-11-04"&gt;Nov 4&lt;/time&gt;&lt;/td&gt;&lt;td&gt;&lt;data value="95"&gt;$95.00&lt;/data&gt;&lt;/td&gt;&lt;td&gt;&lt;mark data-tone="warning"&gt;Pending&lt;/mark&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;a href="/orders/1040"&gt;#1040&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Zoë Park&lt;/td&gt;&lt;td&gt;&lt;time datetime="2026-11-02"&gt;Nov 2&lt;/time&gt;&lt;/td&gt;&lt;td&gt;&lt;data value="310.5"&gt;$310.50&lt;/data&gt;&lt;/td&gt;&lt;td&gt;&lt;mark data-tone="success"&gt;Paid&lt;/mark&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;a href="/orders/1039"&gt;#1039&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Bo Ito&lt;/td&gt;&lt;td&gt;&lt;time datetime="2026-10-30"&gt;Oct 30&lt;/time&gt;&lt;/td&gt;&lt;td&gt;&lt;data value="18"&gt;$18.00&lt;/data&gt;&lt;/td&gt;&lt;td&gt;&lt;mark data-tone="error"&gt;Refunded&lt;/mark&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/figure&gt;
+&lt;nav aria-label="Pagination"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a rel="prev" href="?page=1"&gt;← Previous&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="?page=1"&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="?page=2" aria-current="page"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="?page=3"&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a rel="next" href="?page=3"&gt;Next →&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+    <h3 id="docs-layout">Docs layout</h3>
+    <p>a docs page with breadcrumbs, a generated table of contents that follows the scroll, heading anchor links, copy buttons on code, and previous/next links. <a href="preview/docs-layout.html">Preview the docs layout</a>.</p>
+    <pre><code>&lt;header&gt;
+  &lt;nav&gt;&lt;strong&gt;shipit docs&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="/docs"&gt;Guide&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/docs/cli"&gt;CLI&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;aside&gt;&lt;nav data-tag-toc aria-label="On this page"&gt;&lt;/nav&gt;&lt;/aside&gt;
+  &lt;article&gt;
+    &lt;nav aria-label="Breadcrumb"&gt;&lt;ol&gt;&lt;li&gt;&lt;a href="/docs"&gt;Docs&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a aria-current="page"&gt;Install&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/nav&gt;
+    &lt;h1&gt;Install shipit&lt;/h1&gt;
+    &lt;p&gt;shipit deploys a folder of static files with one command.&lt;/p&gt;
+    &lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+    &lt;p&gt;Node.js 20 or later, and an account on your host.&lt;/p&gt;
+    &lt;h2 id="install"&gt;Install&lt;/h2&gt;
+    &lt;pre&gt;&lt;code&gt;npm install --global shipit&lt;/code&gt;&lt;/pre&gt;
+    &lt;h3 id="verify"&gt;Check the install&lt;/h3&gt;
+    &lt;pre&gt;&lt;code&gt;shipit --version&lt;/code&gt;&lt;/pre&gt;
+    &lt;h2 id="first-deploy"&gt;Your first deploy&lt;/h2&gt;
+    &lt;p&gt;Run &lt;code&gt;shipit&lt;/code&gt; in the folder you want to publish. Press &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt; to cancel.&lt;/p&gt;
+    &lt;aside&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Add &lt;code&gt;--dry-run&lt;/code&gt; to see what would be uploaded.&lt;/aside&gt;
+    &lt;nav aria-label="Pagination"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a rel="prev" href="/docs"&gt;← Introduction&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a rel="next" href="/docs/configure"&gt;Configure →&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+    <h3 id="faq">FAQ</h3>
+    <p>an accordion where one answer is open at a time (the shared name), and the page remembers which. <a href="preview/faq.html">Preview the faq</a>.</p>
+    <pre><code>&lt;section data-tag-remember&gt;
+  &lt;h2&gt;Questions&lt;/h2&gt;
+  &lt;details name="faq" id="faq-trial" open&gt;
+    &lt;summary&gt;Do I need a credit card to start?&lt;/summary&gt;
+    &lt;p&gt;No. The Starter plan is free forever, and Pro has a 30-day trial without a card.&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details name="faq" id="faq-export"&gt;
+    &lt;summary&gt;Can I export my data?&lt;/summary&gt;
+    &lt;p&gt;Yes. Download every entry as CSV or JSON at any time, even after you cancel.&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details name="faq" id="faq-offline"&gt;
+    &lt;summary&gt;Does it work offline?&lt;/summary&gt;
+    &lt;p&gt;Yes. Lumen keeps tracking without a connection and syncs when you're back online.&lt;/p&gt;
+  &lt;/details&gt;
+&lt;/section&gt;</code></pre>
+    <h3 id="feature-grid">Feature grid</h3>
+    <p>three cards with an icon, a heading, and a sentence each. Add or remove &lt;article&gt;s; the grid adapts. <a href="preview/feature-grid.html">Preview the feature grid</a>.</p>
+    <pre><code>&lt;section id="features"&gt;
+  &lt;hgroup&gt;
+    &lt;p&gt;Features&lt;/p&gt;
+    &lt;h2&gt;Everything a one-person business needs&lt;/h2&gt;
+  &lt;/hgroup&gt;
+  &lt;article&gt;
+    &lt;svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;circle cx="12" cy="12" r="9"/&gt;&lt;path d="M12 7v5l3 2"/&gt;&lt;/svg&gt;
+    &lt;h3&gt;Automatic tracking&lt;/h3&gt;
+    &lt;p&gt;Lumen notices what you work on and fills in your timesheet. You only confirm it.&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+    &lt;svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M6 3h9l4 4v14H6z"/&gt;&lt;path d="M9 12h6M9 16h6"/&gt;&lt;/svg&gt;
+    &lt;h3&gt;One-click invoices&lt;/h3&gt;
+    &lt;p&gt;Turn a week of hours into a branded invoice, and send it from Lumen.&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+    &lt;svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/&gt;&lt;/svg&gt;
+    &lt;h3&gt;Honest reports&lt;/h3&gt;
+    &lt;p&gt;See which clients pay well for your time and which ones only feel busy.&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+    <h3 id="footer-columns">Footer columns</h3>
+    <p>a site footer with an about line, link columns, and a copyright. Replace the &lt;footer&gt; of your page. <a href="preview/footer-columns.html">Preview the footer columns</a>.</p>
+    <pre><code>&lt;footer&gt;
+  &lt;p&gt;Lumen: time tracking for freelancers.&lt;/p&gt;
+  &lt;nav aria-label="Product"&gt;
+    &lt;h2&gt;Product&lt;/h2&gt;
+    &lt;ul&gt;&lt;li&gt;&lt;a href="/features"&gt;Features&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/pricing"&gt;Pricing&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/changelog"&gt;Changelog&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;nav aria-label="Company"&gt;
+    &lt;h2&gt;Company&lt;/h2&gt;
+    &lt;ul&gt;&lt;li&gt;&lt;a href="/about"&gt;About&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/blog"&gt;Blog&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;p&gt;© 2026 Lumen Labs&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+    <h3 id="hero">Hero</h3>
+    <p>the page header of a landing page, with a big promise, two calls to action, and a picture beside them. Replace the &lt;header&gt; of your page. <a href="preview/hero.html">Preview the hero</a>.</p>
+    <pre><code>&lt;header&gt;
+  &lt;nav&gt;
+    &lt;strong&gt;Lumen&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#features"&gt;Features&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#pricing"&gt;Pricing&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/login"&gt;Sign in&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;hgroup&gt;
+    &lt;h1&gt;Know where your hours go&lt;/h1&gt;
+    &lt;p&gt;Lumen tracks time for freelancers without timers to forget, and turns it into invoices in one click.&lt;/p&gt;
+  &lt;/hgroup&gt;
+  &lt;div role="group"&gt;
+    &lt;a class="button" href="/signup"&gt;Start free&lt;/a&gt;
+    &lt;a class="button outline" href="/tour"&gt;Take the tour&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;figure&gt;
+    &lt;img src="https://picsum.photos/id/180/800/520" alt="The Lumen week view, with hours grouped by client" width="800" height="520"&gt;
+  &lt;/figure&gt;
+&lt;/header&gt;</code></pre>
+    <h3 id="page-header">Page header</h3>
+    <p>a title and subtitle with action buttons on the same row. Put it first in &lt;main&gt;. <a href="preview/page-header.html">Preview the page header</a>.</p>
+    <pre><code>&lt;header&gt;
+  &lt;hgroup&gt;
+    &lt;h1&gt;Orders&lt;/h1&gt;
+    &lt;p&gt;1,148 orders this month&lt;/p&gt;
+  &lt;/hgroup&gt;
+  &lt;div role="group"&gt;
+    &lt;a class="button outline" href="/orders.csv"&gt;Export CSV&lt;/a&gt;
+    &lt;a class="button" href="/orders/new"&gt;New order&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+    <h3 id="pricing">Pricing table</h3>
+    <p>three plans as cards, with a price, what's included, and a button. <a href="preview/pricing.html">Preview the pricing table</a>.</p>
+    <pre><code>&lt;section id="pricing"&gt;
+  &lt;hgroup&gt;
+    &lt;p&gt;Pricing&lt;/p&gt;
+    &lt;h2&gt;Simple plans that grow with you&lt;/h2&gt;
+  &lt;/hgroup&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h3&gt;Starter&lt;/h3&gt;
+      &lt;p&gt;&lt;strong&gt;$0&lt;/strong&gt; per month&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;ul&gt;
+      &lt;li&gt;One client&lt;/li&gt;
+      &lt;li&gt;Automatic tracking&lt;/li&gt;
+      &lt;li&gt;Weekly report&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;footer&gt;&lt;a class="button outline" href="/signup?plan=starter"&gt;Start free&lt;/a&gt;&lt;/footer&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h3&gt;Pro &lt;mark data-tone="info"&gt;Most popular&lt;/mark&gt;&lt;/h3&gt;
+      &lt;p&gt;&lt;strong&gt;$12&lt;/strong&gt; per month&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Unlimited clients&lt;/li&gt;
+      &lt;li&gt;Invoices and payments&lt;/li&gt;
+      &lt;li&gt;Reports by client and project&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;footer&gt;&lt;a class="button" href="/signup?plan=pro"&gt;Try Pro for 30 days&lt;/a&gt;&lt;/footer&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h3&gt;Studio&lt;/h3&gt;
+      &lt;p&gt;&lt;strong&gt;$29&lt;/strong&gt; per month&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Up to five people&lt;/li&gt;
+      &lt;li&gt;Shared clients and rates&lt;/li&gt;
+      &lt;li&gt;Priority support&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;footer&gt;&lt;a class="button outline" href="/contact"&gt;Talk to us&lt;/a&gt;&lt;/footer&gt;
+  &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+    <h3 id="search-bar">Search bar</h3>
+    <p>a search field with filters and a button in one row, sent to the server as a GET form. <a href="preview/search-bar.html">Preview the search bar</a>.</p>
+    <pre><code>&lt;form action="/users" method="get"&gt;
+  &lt;search&gt;
+    &lt;input type="search" name="q" aria-label="Search users" placeholder="Name or email"&gt;
+    &lt;select name="role" aria-label="Role"&gt;
+      &lt;option value=""&gt;All roles&lt;/option&gt;
+      &lt;option value="admin"&gt;Admin&lt;/option&gt;
+      &lt;option value="editor"&gt;Editor&lt;/option&gt;
+      &lt;option value="viewer"&gt;Viewer&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;button&gt;Search&lt;/button&gt;
+  &lt;/search&gt;
+&lt;/form&gt;</code></pre>
+    <h3 id="sidebar-layout">Sidebar layout</h3>
+    <p>an app page with a full-height sidebar, a top bar, and the content beside it. This is the whole &lt;body&gt;. <a href="preview/sidebar-layout.html">Preview the sidebar layout</a>.</p>
+    <pre><code>&lt;aside&gt;
+  &lt;nav aria-label="Sections"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/dashboard"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/orders" aria-current="page"&gt;Orders&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/customers"&gt;Customers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/settings"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/aside&gt;
+&lt;header&gt;
+  &lt;nav&gt;&lt;strong&gt;Northwind&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="/help"&gt;Help&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;h1&gt;Orders&lt;/h1&gt;
+  &lt;p&gt;The page content goes here.&lt;/p&gt;
+&lt;/main&gt;
+&lt;footer&gt;&lt;p&gt;© 2026 Northwind&lt;/p&gt;&lt;/footer&gt;</code></pre>
+    <h3 id="stat-tiles">Stat tiles</h3>
+    <p>a row of key numbers with a change for each. A &lt;dl&gt; whose items are wrapped in &lt;div&gt;s becomes tiles. <a href="preview/stat-tiles.html">Preview the stat tiles</a>.</p>
+    <pre><code>&lt;dl&gt;
+  &lt;div&gt;&lt;dt&gt;Revenue&lt;/dt&gt;&lt;dd&gt;$84,312&lt;/dd&gt;&lt;dd&gt;&lt;ins&gt;+12.4%&lt;/ins&gt; vs. last month&lt;/dd&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;dt&gt;Orders&lt;/dt&gt;&lt;dd&gt;1,148&lt;/dd&gt;&lt;dd&gt;&lt;ins&gt;+3.1%&lt;/ins&gt; vs. last month&lt;/dd&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;dt&gt;Conversion&lt;/dt&gt;&lt;dd&gt;2.9%&lt;/dd&gt;&lt;dd&gt;&lt;del&gt;−0.4%&lt;/del&gt; vs. last month&lt;/dd&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;dt&gt;Average order&lt;/dt&gt;&lt;dd&gt;$73.44&lt;/dd&gt;&lt;dd&gt;&lt;ins&gt;+8.9%&lt;/ins&gt; vs. last month&lt;/dd&gt;&lt;/div&gt;
+&lt;/dl&gt;</code></pre>
+    <h3 id="testimonials">Testimonials</h3>
+    <p>quotes from customers as cards. <a href="preview/testimonials.html">Preview the testimonials</a>.</p>
+    <pre><code>&lt;section&gt;
+  &lt;h2&gt;Freelancers who switched&lt;/h2&gt;
+  &lt;article&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;I found eleven billable hours a month I used to forget. Lumen paid for itself the first week.&lt;/p&gt;
+      &lt;footer&gt;Ana Ruiz, illustrator&lt;/footer&gt;
+    &lt;/blockquote&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;The reports showed me my favorite client was my worst-paying one. I raised my rate and kept the client.&lt;/p&gt;
+      &lt;footer&gt;Tom Okafor, developer&lt;/footer&gt;
+    &lt;/blockquote&gt;
+  &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+    <h3 id="user-menu">User menu</h3>
+    <p>a top bar with a dropdown account menu. Without JavaScript the menu links simply show in the bar. <a href="preview/user-menu.html">Preview the user menu</a>.</p>
+    <pre><code>&lt;header&gt;
+  &lt;nav&gt;
+    &lt;strong&gt;Northwind&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/dashboard"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/orders"&gt;Orders&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;button class="outline" aria-expanded="false" aria-controls="account-menu"&gt;Maya Lin&lt;/button&gt;
+        &lt;ul id="account-menu"&gt;
+          &lt;li&gt;&lt;a href="/profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="/settings"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="/logout"&gt;Sign out&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+  </article>
+</main>
+<footer><p>TagKit is part of the Tag family by Kovir Labs. Apache-2.0.</p></footer>
+</body>
+</html>

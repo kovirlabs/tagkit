@@ -1,0 +1,184 @@
+{
+  "snippets": [
+    {
+      "id": "callout",
+      "name": "Callouts",
+      "description": "highlighted notes inside an article. A bold first word labels them; data-tone colors them.",
+      "where": "main",
+      "file": "snippets/callout.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/callout.html"
+    },
+    {
+      "id": "card-grid",
+      "name": "Card grid",
+      "description": "a section of linked cards, such as blog posts, projects, or products. Each card is an <article>.",
+      "where": "main",
+      "file": "snippets/card-grid.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/card-grid.html"
+    },
+    {
+      "id": "confirm-dialog",
+      "name": "Confirm dialog",
+      "description": "a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it.",
+      "where": "main",
+      "file": "snippets/confirm-dialog.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/confirm-dialog.html"
+    },
+    {
+      "id": "contact-form",
+      "name": "Contact form",
+      "description": "labeled fields with help text, validation messages shown under each field, a character counter, and a busy submit button.",
+      "where": "main",
+      "file": "snippets/contact-form.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/contact-form.html"
+    },
+    {
+      "id": "data-table",
+      "name": "Data table",
+      "description": "sortable columns (click a header), a filter box that hides rows as you type, and status badges. Sort values go in <data value> and <time datetime>.",
+      "where": "main",
+      "file": "snippets/data-table.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/data-table.html"
+    },
+    {
+      "id": "docs-layout",
+      "name": "Docs layout",
+      "description": "a docs page with breadcrumbs, a generated table of contents that follows the scroll, heading anchor links, copy buttons on code, and previous/next links.",
+      "where": "body",
+      "file": "snippets/docs-layout.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/docs-layout.html"
+    },
+    {
+      "id": "faq",
+      "name": "FAQ",
+      "description": "an accordion where one answer is open at a time (the shared name), and the page remembers which.",
+      "where": "main",
+      "file": "snippets/faq.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/faq.html"
+    },
+    {
+      "id": "feature-grid",
+      "name": "Feature grid",
+      "description": "three cards with an icon, a heading, and a sentence each. Add or remove <article>s; the grid adapts.",
+      "where": "main",
+      "file": "snippets/feature-grid.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/feature-grid.html"
+    },
+    {
+      "id": "footer-columns",
+      "name": "Footer columns",
+      "description": "a site footer with an about line, link columns, and a copyright. Replace the <footer> of your page.",
+      "where": "body",
+      "file": "snippets/footer-columns.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/footer-columns.html"
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "description": "the page header of a landing page, with a big promise, two calls to action, and a picture beside them. Replace the <header> of your page.",
+      "where": "body",
+      "file": "snippets/hero.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/hero.html"
+    },
+    {
+      "id": "page-header",
+      "name": "Page header",
+      "description": "a title and subtitle with action buttons on the same row. Put it first in <main>.",
+      "where": "main",
+      "file": "snippets/page-header.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/page-header.html"
+    },
+    {
+      "id": "pricing",
+      "name": "Pricing table",
+      "description": "three plans as cards, with a price, what's included, and a button.",
+      "where": "main",
+      "file": "snippets/pricing.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/pricing.html"
+    },
+    {
+      "id": "search-bar",
+      "name": "Search bar",
+      "description": "a search field with filters and a button in one row, sent to the server as a GET form.",
+      "where": "main",
+      "file": "snippets/search-bar.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/search-bar.html"
+    },
+    {
+      "id": "sidebar-layout",
+      "name": "Sidebar layout",
+      "description": "an app page with a full-height sidebar, a top bar, and the content beside it. This is the whole <body>.",
+      "where": "body",
+      "file": "snippets/sidebar-layout.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/sidebar-layout.html"
+    },
+    {
+      "id": "stat-tiles",
+      "name": "Stat tiles",
+      "description": "a row of key numbers with a change for each. A <dl> whose items are wrapped in <div>s becomes tiles.",
+      "where": "main",
+      "file": "snippets/stat-tiles.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/stat-tiles.html"
+    },
+    {
+      "id": "testimonials",
+      "name": "Testimonials",
+      "description": "quotes from customers as cards.",
+      "where": "main",
+      "file": "snippets/testimonials.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/testimonials.html"
+    },
+    {
+      "id": "user-menu",
+      "name": "User menu",
+      "description": "a top bar with a dropdown account menu. Without JavaScript the menu links simply show in the bar.",
+      "where": "main",
+      "file": "snippets/user-menu.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/user-menu.html"
+    }
+  ],
+  "templates": [
+    {
+      "id": "admin-table",
+      "name": "Admin table",
+      "description": "a page to manage records, with breadcrumbs, a title row with an action, a filter box, a sortable table with status badges, and an \"invite\" form in a modal dialog.",
+      "file": "templates/admin-table.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/templates/admin-table.html"
+    },
+    {
+      "id": "blog-post",
+      "name": "Blog post",
+      "description": "an article with author and date, a lead image that enlarges, sections with anchor links, a pull quote, code with a copy button, a sortable table, a callout, and related posts.",
+      "file": "templates/blog-post.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/templates/blog-post.html"
+    },
+    {
+      "id": "dashboard",
+      "name": "Dashboard",
+      "description": "an app page with a full-height sidebar, a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list.",
+      "file": "templates/dashboard.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/templates/dashboard.html"
+    },
+    {
+      "id": "docs",
+      "name": "Docs page",
+      "description": "breadcrumbs, a generated table of contents that follows the scroll, heading anchor links, code with copy buttons, a tip callout, and previous/next links.",
+      "file": "templates/docs.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/templates/docs.html"
+    },
+    {
+      "id": "landing",
+      "name": "Landing page",
+      "description": "a hero with a picture, a feature grid, pricing plans, testimonials, an FAQ accordion, a call to action, and a footer with link columns.",
+      "file": "templates/landing.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/templates/landing.html"
+    },
+    {
+      "id": "signup",
+      "name": "Sign-up page",
+      "description": "a single-form page with help text, a password show/hide toggle, checkboxes, a switch, a character counter, and validation messages under each field.",
+      "file": "templates/signup.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/templates/signup.html"
+    }
+  ]
+}

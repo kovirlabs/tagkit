@@ -1,0 +1,147 @@
+<!-- Landing page: a hero with a picture, a feature grid, pricing plans, testimonials, an FAQ accordion, a call to action, and a footer with link columns. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen: time tracking for freelancers</title>
+<meta name="description" content="Lumen tracks your hours without timers and turns them into invoices.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<header>
+  <nav>
+    <strong>Lumen</strong>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="/login">Sign in</a></li>
+    </ul>
+  </nav>
+  <hgroup>
+    <h1>Know where your hours go</h1>
+    <p>Lumen tracks time for freelancers without timers to forget, and turns it into invoices in one click.</p>
+  </hgroup>
+  <div role="group">
+    <a class="button" href="/signup">Start free</a>
+    <a class="button outline" href="/tour">Take the tour</a>
+  </div>
+  <figure>
+    <img src="https://picsum.photos/id/180/800/520" alt="The Lumen week view, with hours grouped by client" width="800" height="520">
+  </figure>
+</header>
+<main>
+  <section id="features">
+    <hgroup>
+      <p>Features</p>
+      <h2>Everything a one-person business needs</h2>
+    </hgroup>
+    <article>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <h3>Automatic tracking</h3>
+      <p>Lumen notices what you work on and fills in your timesheet. You only confirm it.</p>
+    </article>
+    <article>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg>
+      <h3>One-click invoices</h3>
+      <p>Turn a week of hours into a branded invoice, and send it from Lumen.</p>
+    </article>
+    <article>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+      <h3>Honest reports</h3>
+      <p>See which clients pay well for your time and which ones only feel busy.</p>
+    </article>
+  </section>
+  <section id="pricing">
+    <hgroup>
+      <p>Pricing</p>
+      <h2>Simple plans that grow with you</h2>
+    </hgroup>
+    <article>
+      <header>
+        <h3>Starter</h3>
+        <p><strong>$0</strong> per month</p>
+      </header>
+      <ul>
+        <li>One client</li>
+        <li>Automatic tracking</li>
+        <li>Weekly report</li>
+      </ul>
+      <footer><a class="button outline" href="/signup?plan=starter">Start free</a></footer>
+    </article>
+    <article>
+      <header>
+        <h3>Pro <mark data-tone="info">Most popular</mark></h3>
+        <p><strong>$12</strong> per month</p>
+      </header>
+      <ul>
+        <li>Unlimited clients</li>
+        <li>Invoices and payments</li>
+        <li>Reports by client and project</li>
+      </ul>
+      <footer><a class="button" href="/signup?plan=pro">Try Pro for 30 days</a></footer>
+    </article>
+    <article>
+      <header>
+        <h3>Studio</h3>
+        <p><strong>$29</strong> per month</p>
+      </header>
+      <ul>
+        <li>Up to five people</li>
+        <li>Shared clients and rates</li>
+        <li>Priority support</li>
+      </ul>
+      <footer><a class="button outline" href="/contact">Talk to us</a></footer>
+    </article>
+  </section>
+  <section>
+    <h2>Freelancers who switched</h2>
+    <article>
+      <blockquote>
+        <p>I found eleven billable hours a month I used to forget. Lumen paid for itself the first week.</p>
+        <footer>Ana Ruiz, illustrator</footer>
+      </blockquote>
+    </article>
+    <article>
+      <blockquote>
+        <p>The reports showed me my favorite client was my worst-paying one. I raised my rate and kept the client.</p>
+        <footer>Tom Okafor, developer</footer>
+      </blockquote>
+    </article>
+  </section>
+  <section data-tag-remember>
+    <h2>Questions</h2>
+    <details name="faq" id="faq-trial" open>
+      <summary>Do I need a credit card to start?</summary>
+      <p>No. The Starter plan is free forever, and Pro has a 30-day trial without a card.</p>
+    </details>
+    <details name="faq" id="faq-export">
+      <summary>Can I export my data?</summary>
+      <p>Yes. Download every entry as CSV or JSON at any time, even after you cancel.</p>
+    </details>
+    <details name="faq" id="faq-offline">
+      <summary>Does it work offline?</summary>
+      <p>Yes. Lumen keeps tracking without a connection and syncs when you're back online.</p>
+    </details>
+  </section>
+  <section>
+    <h2>Start tracking today</h2>
+    <p>Free for one client, forever. No credit card needed.</p>
+    <p><a class="button" href="/signup">Create your account</a></p>
+  </section>
+</main>
+<footer>
+  <p>Lumen: time tracking for freelancers.</p>
+  <nav aria-label="Product">
+    <h2>Product</h2>
+    <ul><li><a href="/features">Features</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/changelog">Changelog</a></li></ul>
+  </nav>
+  <nav aria-label="Company">
+    <h2>Company</h2>
+    <ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li></ul>
+  </nav>
+  <p>© 2026 Lumen Labs</p>
+</footer>
+</body>
+</html>

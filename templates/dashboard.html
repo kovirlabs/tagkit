@@ -1,0 +1,84 @@
+<!-- Dashboard: an app page with a full-height sidebar, a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · Northwind</title>
+<meta name="description" content="Store dashboard with key numbers, recent orders, and top products.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<aside>
+  <nav aria-label="Sections">
+    <ul>
+      <li><a href="/dashboard" aria-current="page">Dashboard</a></li>
+      <li><a href="/orders">Orders</a></li>
+      <li><a href="/customers">Customers</a></li>
+      <li><a href="/settings">Settings</a></li>
+    </ul>
+  </nav>
+</aside>
+<header>
+  <nav>
+    <strong>Northwind</strong>
+    <ul>
+      <li><a href="/help">Help</a></li>
+      <li>
+        <button class="outline" aria-expanded="false" aria-controls="account-menu">Maya Lin</button>
+        <ul id="account-menu">
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/settings">Settings</a></li>
+          <li><a href="/logout">Sign out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <header>
+    <hgroup>
+      <h1>Dashboard</h1>
+      <p>November 2026, updated <time datetime="2026-11-06T16:45Z" data-tag-time="relative">at 4:45 PM UTC</time></p>
+    </hgroup>
+    <a class="button" href="/orders/new">New order</a>
+  </header>
+  <dl>
+    <div><dt>Revenue</dt><dd>$84,312</dd><dd><ins>+12.4%</ins> vs. last month</dd></div>
+    <div><dt>Orders</dt><dd>1,148</dd><dd><ins>+3.1%</ins> vs. last month</dd></div>
+    <div><dt>Conversion</dt><dd>2.9%</dd><dd><del>−0.4%</del> vs. last month</dd></div>
+    <div><dt>Average order</dt><dd>$73.44</dd><dd><ins>+8.9%</ins> vs. last month</dd></div>
+  </dl>
+  <section>
+    <h2>Recent orders</h2>
+    <search>
+      <input type="search" aria-label="Filter orders" aria-controls="orders-table" placeholder="Filter orders…" hidden>
+    </search>
+    <figure>
+      <table id="orders-table" class="striped">
+        <thead>
+          <tr><th>Order</th><th>Customer</th><th>Placed</th><th>Total</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="/orders/1042">#1042</a></td><td>Maya Lin</td><td><time datetime="2026-11-05">Nov 5</time></td><td><data value="1240">$1,240.00</data></td><td><mark data-tone="success">Paid</mark></td></tr>
+          <tr><td><a href="/orders/1041">#1041</a></td><td>Alex Chen</td><td><time datetime="2026-11-04">Nov 4</time></td><td><data value="95">$95.00</data></td><td><mark data-tone="warning">Pending</mark></td></tr>
+          <tr><td><a href="/orders/1040">#1040</a></td><td>Zoë Park</td><td><time datetime="2026-11-02">Nov 2</time></td><td><data value="310.5">$310.50</data></td><td><mark data-tone="success">Paid</mark></td></tr>
+          <tr><td><a href="/orders/1039">#1039</a></td><td>Bo Ito</td><td><time datetime="2026-10-30">Oct 30</time></td><td><data value="18">$18.00</data></td><td><mark data-tone="error">Refunded</mark></td></tr>
+        </tbody>
+      </table>
+    </figure>
+    <p><a href="/orders">All orders →</a></p>
+  </section>
+  <section>
+    <h2>Top products</h2>
+    <ol>
+      <li>Linen apron <small>— 212 sold</small></li>
+      <li>Ceramic pour-over <small>— 168 sold</small></li>
+      <li>Cast-iron skillet <small>— 141 sold</small></li>
+    </ol>
+  </section>
+</main>
+<footer><p>© 2026 Northwind</p></footer>
+</body>
+</html>

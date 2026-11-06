@@ -1,0 +1,53 @@
+<!-- Sign-up page: a single-form page with help text, a password show/hide toggle, checkboxes, a switch, a character counter, and validation messages under each field. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join the meetup · Portland Web Folks</title>
+<meta name="description" content="Sign up for the Portland Web Folks monthly meetup.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<header>
+  <nav><strong>Portland Web Folks</strong><ul><li><a href="/">Events</a></li><li><a href="/signup">Join</a></li></ul></nav>
+</header>
+<main>
+  <article>
+    <hgroup>
+      <h1>Join the meetup</h1>
+      <p>Monthly talks, snacks, and people who like the web. Free, always.</p>
+    </hgroup>
+    <form action="/signup" method="post">
+      <label for="name">Name</label>
+      <input id="name" name="name" autocomplete="name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+      <small>Only for event reminders. Never shared.</small>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="new-password" required minlength="10">
+      <small>At least 10 characters.</small>
+      <label for="experience">Experience</label>
+      <select id="experience" name="experience">
+        <option>Just starting out</option>
+        <option>A few years</option>
+        <option>Ten years or more</option>
+      </select>
+      <fieldset>
+        <legend>Interests</legend>
+        <label><input type="checkbox" name="interests" value="css"> CSS and design</label>
+        <label><input type="checkbox" name="interests" value="a11y"> Accessibility</label>
+        <label><input type="checkbox" name="interests" value="perf"> Performance</label>
+      </fieldset>
+      <label for="about">A line about you (optional)</label>
+      <textarea id="about" name="about" maxlength="200"></textarea>
+      <label><input type="checkbox" role="switch" name="newsletter" checked> Monthly newsletter</label>
+      <label><input type="checkbox" name="terms" required> I agree to the <a href="/conduct">code of conduct</a></label>
+      <button>Join</button>
+    </form>
+  </article>
+</main>
+<footer><p>Portland Web Folks is run by volunteers.</p></footer>
+</body>
+</html>

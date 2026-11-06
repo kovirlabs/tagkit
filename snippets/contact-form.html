@@ -1,0 +1,18 @@
+<!-- Contact form: labeled fields with help text, validation messages shown under each field, a character counter, and a busy submit button. -->
+<form action="/contact" method="post">
+  <label for="contact-name">Name</label>
+  <input id="contact-name" name="name" autocomplete="name" required>
+  <label for="contact-email">Email</label>
+  <input type="email" id="contact-email" name="email" autocomplete="email" required>
+  <small>We reply within one working day.</small>
+  <label for="contact-topic">Topic</label>
+  <select id="contact-topic" name="topic">
+    <option>A question about pricing</option>
+    <option>Help with my account</option>
+    <option>Something else</option>
+  </select>
+  <label for="contact-message">Message</label>
+  <textarea id="contact-message" name="message" maxlength="1000" required></textarea>
+  <label><input type="checkbox" name="copy"> Send me a copy</label>
+  <button>Send message</button>
+</form>

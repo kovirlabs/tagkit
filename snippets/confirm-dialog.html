@@ -1,0 +1,15 @@
+<!-- Confirm dialog: a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it. -->
+<button class="secondary" commandfor="delete-project" command="show-modal">Delete project</button>
+<dialog id="delete-project">
+  <form method="post" action="/projects/42/delete">
+    <header>
+      <h2>Delete "Website redesign"?</h2>
+      <button type="button" commandfor="delete-project" command="close" aria-label="Close">✕</button>
+    </header>
+    <p>This deletes the project and its 128 time entries. It can't be undone.</p>
+    <footer>
+      <button type="button" class="secondary" commandfor="delete-project" command="close">Cancel</button>
+      <button>Delete project</button>
+    </footer>
+  </form>
+</dialog>

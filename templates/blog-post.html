@@ -1,0 +1,70 @@
+<!-- Blog post: an article with author and date, a lead image that enlarges, sections with anchor links, a pull quote, code with a copy button, a sortable table, a callout, and related posts. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What I learned running a tiny SaaS for a year · Field Notes</title>
+<meta name="description" content="Twelve months, 340 customers, and the five lessons that mattered.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<header>
+  <nav><strong>Field Notes</strong><ul><li><a href="/">Posts</a></li><li><a href="/about">About</a></li><li><a href="/feed.xml">RSS</a></li></ul></nav>
+</header>
+<main>
+  <article>
+    <hgroup>
+      <h1>What I learned running a tiny SaaS for a year</h1>
+      <p>By Dana Whitfield · <time datetime="2026-11-02">November 2, 2026</time> · 7 minute read</p>
+    </hgroup>
+    <figure>
+      <a href="https://picsum.photos/id/1/1600/900"><img src="https://picsum.photos/id/1/800/450" alt="A laptop on a wooden desk beside a notebook" width="800" height="450"></a>
+      <figcaption>Where most of the work happened. Click to enlarge.</figcaption>
+    </figure>
+    <p>A year ago I launched a small tool that turns <abbr title="Comma-separated values">CSV</abbr> exports into readable reports. Today it has 340 paying customers. Here is what mattered, and what didn't.</p>
+
+    <h2 id="pricing">Charge from day one</h2>
+    <p>My free beta taught me almost nothing. The week I added a price, people started telling me what was missing.</p>
+    <blockquote>
+      <p>Free users give you compliments. Paying users give you feedback.</p>
+      <footer>Something a friend told me, far too late</footer>
+    </blockquote>
+
+    <h2 id="boring">Boring technology wins</h2>
+    <p>The whole app is one server, one database, and a cron job. The deploy script fits on a postcard:</p>
+    <pre><code>git pull
+npm ci --omit=dev
+systemctl restart reports</code></pre>
+
+    <h2 id="numbers">The numbers</h2>
+    <figure>
+      <table>
+        <thead><tr><th>Quarter</th><th>Customers</th><th>Revenue</th><th>Churn</th></tr></thead>
+        <tbody>
+          <tr><td>Q1</td><td>42</td><td><data value="1260">$1,260</data></td><td>9%</td></tr>
+          <tr><td>Q2</td><td>118</td><td><data value="3540">$3,540</data></td><td>6%</td></tr>
+          <tr><td>Q3</td><td>226</td><td><data value="6780">$6,780</data></td><td>5%</td></tr>
+          <tr><td>Q4</td><td>340</td><td><data value="10200">$10,200</data></td><td>4%</td></tr>
+        </tbody>
+      </table>
+      <figcaption>Click a column header to sort.</figcaption>
+    </figure>
+    <aside><strong>Note:</strong> Revenue is monthly recurring revenue at the end of each quarter, before fees.</aside>
+
+    <h2 id="next">What's next</h2>
+    <p>I'm hiring my first part-time support person, and I'm still not adding a free plan.</p>
+
+    <footer>
+      <h2>Related posts</h2>
+      <ul>
+        <li><a href="/posts/first-100-customers">How I found the first 100 customers</a></li>
+        <li><a href="/posts/pricing-page">Rewriting my pricing page four times</a></li>
+      </ul>
+    </footer>
+  </article>
+</main>
+<footer><p>© 2026 Dana Whitfield. Written in plain HTML.</p></footer>
+</body>
+</html>

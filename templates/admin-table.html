@@ -1,0 +1,71 @@
+<!-- Admin table: a page to manage records, with breadcrumbs, a title row with an action, a filter box, a sortable table with status badges, and an "invite" form in a modal dialog. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Users · Northwind Admin</title>
+<meta name="description" content="Manage workspace members, roles, and invitations.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+<style>
+  :root { --color-primary: #0f766e; }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <strong>Northwind Admin</strong>
+    <ul>
+      <li><a href="/admin">Dashboard</a></li>
+      <li><a href="/admin/users">Users</a></li>
+      <li><a href="/admin/billing">Billing</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <nav aria-label="Breadcrumb"><ol><li><a href="/admin">Admin</a></li><li><a aria-current="page">Users</a></li></ol></nav>
+  <header>
+    <hgroup>
+      <h1>Users</h1>
+      <p>5 members in the Northwind workspace</p>
+    </hgroup>
+    <button commandfor="invite" command="show-modal">Invite user</button>
+  </header>
+  <search>
+    <input type="search" aria-label="Filter users" aria-controls="users" placeholder="Filter by name, email, or role…" hidden>
+  </search>
+  <figure>
+    <table id="users">
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Last active</th><th data-tagaction="off"><span class="visually-hidden">Actions</span></th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Priya Raman</td><td>priya@northwind.io</td><td>Owner</td><td><mark data-tone="success">Active</mark></td><td><time datetime="2026-11-06T09:12Z">Nov 6, 9:12 UTC</time></td><td><a href="/admin/users/1">Edit</a></td></tr>
+        <tr><td>Marcus Oyelaran</td><td>marcus@northwind.io</td><td>Admin</td><td><mark data-tone="success">Active</mark></td><td><time datetime="2026-11-05T17:40Z">Nov 5, 17:40 UTC</time></td><td><a href="/admin/users/2">Edit</a></td></tr>
+        <tr><td>Elena Kowalczyk</td><td>elena@northwind.io</td><td>Editor</td><td><mark data-tone="warning">Invited</mark></td><td><time datetime="2026-11-03T08:00Z">Nov 3, 8:00 UTC</time></td><td><a href="/admin/users/3">Edit</a></td></tr>
+        <tr><td>Sam Duarte</td><td>sam@northwind.io</td><td>Viewer</td><td><mark data-tone="error">Suspended</mark></td><td><time datetime="2026-10-12T14:25Z">Oct 12, 14:25 UTC</time></td><td><a href="/admin/users/4">Edit</a></td></tr>
+        <tr><td>Hana Sato</td><td>hana@northwind.io</td><td>Editor</td><td><mark data-tone="success">Active</mark></td><td><time datetime="2026-11-06T11:03Z">Nov 6, 11:03 UTC</time></td><td><a href="/admin/users/5">Edit</a></td></tr>
+      </tbody>
+    </table>
+  </figure>
+  <dialog id="invite">
+    <form action="/admin/users/invite" method="post">
+      <header>
+        <h2>Invite a user</h2>
+        <button type="button" commandfor="invite" command="close" aria-label="Close">✕</button>
+      </header>
+      <label for="invite-email">Email</label>
+      <input type="email" id="invite-email" name="email" required>
+      <label for="invite-role">Role</label>
+      <select id="invite-role" name="role"><option>Viewer</option><option>Editor</option><option>Admin</option></select>
+      <footer>
+        <button type="button" class="secondary" commandfor="invite" command="close">Cancel</button>
+        <button>Send invitation</button>
+      </footer>
+    </form>
+  </dialog>
+</main>
+<footer><p>© 2026 Northwind</p></footer>
+</body>
+</html>

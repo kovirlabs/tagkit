@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search bar · TagKit preview</title>
+<meta name="description" content="a search field with filters and a button in one row, sent to the server as a GET form.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<main>
+<h1>Search bar</h1>
+<form action="/users" method="get">
+  <search>
+    <input type="search" name="q" aria-label="Search users" placeholder="Name or email">
+    <select name="role" aria-label="Role">
+      <option value="">All roles</option>
+      <option value="admin">Admin</option>
+      <option value="editor">Editor</option>
+      <option value="viewer">Viewer</option>
+    </select>
+    <button>Search</button>
+  </search>
+</form>
+</main>
+</body>
+</html>

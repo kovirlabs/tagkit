@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User menu · TagKit preview</title>
+<meta name="description" content="a top bar with a dropdown account menu. Without JavaScript the menu links simply show in the bar.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<main>
+<h1>User menu</h1>
+<header>
+  <nav>
+    <strong>Northwind</strong>
+    <ul>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/orders">Orders</a></li>
+      <li>
+        <button class="outline" aria-expanded="false" aria-controls="account-menu">Maya Lin</button>
+        <ul id="account-menu">
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/settings">Settings</a></li>
+          <li><a href="/logout">Sign out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+</main>
+</body>
+</html>
