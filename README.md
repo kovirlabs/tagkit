@@ -12,6 +12,8 @@ TagKit is part of the Tag family. Its HTML is styled by [TagBrush.css](https://g
 
 **Snippets** (`snippets/`): hero, feature grid, pricing table, testimonials, FAQ, card grid, stat tiles, page header, data table, search bar, confirm dialog, user menu, contact form, callouts, sidebar layout, docs layout, footer columns. Each file starts with a comment that says what it is and where it goes. Most go inside `<main>`; ones marked `(body)` are page-level.
 
+**Themes** (`themes/`): a [Pandoc template](themes/pandoc/) that turns Markdown, Word, or AI-written documents into a styled page with one command.
+
 ## Every piece is tested
 
 - TagCheck reports no errors and no warnings.
@@ -23,7 +25,7 @@ Tested with TagBrush.css 1.1.0 and TagAction 0.1.0.
 
 ## Coming next
 
-Build-time includes (a small CLI that stitches a shared header, footer, and nav into static pages) and platform themes (Pandoc, Jekyll, MkDocs, Hugo, Eleventy, WordPress), as planned in the [Tag family spec](https://github.com/kovirlabs/tagstack/blob/main/Spec.md).
+Build-time includes (a small CLI that stitches a shared header, footer, and nav into static pages) and more platform themes (MkDocs, Hugo, Eleventy, WordPress), as planned in the [Tag family spec](https://github.com/kovirlabs/tagstack/blob/main/Spec.md).
 
 ## Development
 

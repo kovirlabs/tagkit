@@ -24,6 +24,10 @@ jobs:
           npm run build
           git diff --exit-code || (echo "::error::Generated files are out of date. Run 'npm run build' and commit the result." && exit 1)
 
+      - name: Install Pandoc (for the Pandoc template tests)
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+        timeout-minutes: 5
+
       - run: npx playwright install --with-deps chromium
         timeout-minutes: 5
 

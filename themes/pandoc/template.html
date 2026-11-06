@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- TagKit Pandoc template: Markdown, Word, or any Pandoc input as a plain HTML page styled by TagBrush.css. https://github.com/kovirlabs/tagkit/tree/main/themes/pandoc -->
+<html lang="$if(lang)$$lang$$else$en$endif$"$if(dir)$ dir="$dir$"$endif$>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+$for(author-meta)$
+<meta name="author" content="$author-meta$">
+$endfor$
+$if(date-meta)$
+<meta name="dcterms.date" content="$date-meta$">
+$endif$
+$if(description-meta)$
+<meta name="description" content="$description-meta$">
+$endif$
+<title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+$if(primary-color)$
+<style>:root { --color-primary: $primary-color$; }</style>
+$endif$
+$if(no-tagaction)$
+$else$
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+$endif$
+$for(css)$
+<link rel="stylesheet" href="$css$">
+$endfor$
+$for(header-includes)$
+$header-includes$
+$endfor$
+$if(math)$
+$math$
+$endif$
+</head>
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+<main>
+$if(toc)$
+<aside>
+<nav aria-label="$if(toc-title)$$toc-title$$else$Contents$endif$">
+$table-of-contents$
+</nav>
+</aside>
+$endif$
+<article>
+$if(title)$
+<header>
+<hgroup>
+<h1>$title$</h1>
+$if(subtitle)$
+<p>$subtitle$</p>
+$endif$
+</hgroup>
+$if(author)$
+<p><small>$for(author)$$author$$sep$, $endfor$$if(date)$ · $date$$endif$</small></p>
+$elseif(date)$
+<p><small>$date$</small></p>
+$endif$
+</header>
+$if(abstract)$
+<aside>
+<strong>$if(abstract-title)$$abstract-title$$else$Abstract$endif$:</strong>
+$abstract$
+</aside>
+$endif$
+$endif$
+$body$
+</article>
+</main>
+$for(include-after)$
+$include-after$
+$endfor$
+</body>
+</html>
