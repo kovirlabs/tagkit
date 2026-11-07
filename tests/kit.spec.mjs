@@ -49,7 +49,8 @@ test.describe('with TagAction', () => {
     for (const file of PAGES) {
       await open(page, file);
       await expect.poll(() => page.evaluate(() => typeof window.TagAction)).toBe('object');
-      const links = page.locator('a[href]:has(> img:only-child)');
+      // A link whose only content is a photo (not a logo beside text, like the family bar's).
+      const links = page.locator('a[href]:has(> img:only-child)').filter({ hasNotText: /\S/ });
       for (let i = 0; i < await links.count(); i++) {
         const href = await links.nth(i).getAttribute('href');
         await links.nth(i).click();
