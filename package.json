@@ -40,7 +40,7 @@
   "devDependencies": {
     "@kovirlabs/tagcheck": "git+https://github.com/kovirlabs/tagcheck.git",
     "@playwright/test": "1.64.1",
-    "tagaction": "git+https://github.com/kovirlabs/tagaction.git",
+    "tagaction": "^0.1.0",
     "tagbrush": "1.1.0"
   },
   "bin": {
