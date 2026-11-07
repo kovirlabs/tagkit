@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Tested with TagBrush.css 1.2.0.
+- The blog post template's lead photo opens in TagAction's viewer: its link now ends in `.jpg`, since TagAction only treats links to image files as photos. A test checks every linked photo. Found by the family agent evaluation.
 
 ## 0.1.0 (2026-11-06)
 

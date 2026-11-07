@@ -42,6 +42,25 @@ test.describe('with TagAction', () => {
     });
   }
 
+  // TagAction opens a link around an image in its viewer only when the link
+  // points to an image file (.jpg, .png, …). Found by the family agent evaluation.
+  test('every photo linked to a larger version opens in TagAction\'s viewer', async ({ page }) => {
+    let checked = 0;
+    for (const file of PAGES) {
+      await open(page, file);
+      await expect.poll(() => page.evaluate(() => typeof window.TagAction)).toBe('object');
+      const links = page.locator('a[href]:has(> img:only-child)');
+      for (let i = 0; i < await links.count(); i++) {
+        const href = await links.nth(i).getAttribute('href');
+        await links.nth(i).click();
+        await expect(page.locator('[data-tag="viewer"]'), `${file}: ${href}`).toBeVisible();
+        await page.keyboard.press('Escape');
+        checked++;
+      }
+    }
+    expect(checked).toBeGreaterThan(0);
+  });
+
   test('the admin table sorts, filters, and opens the invite dialog', async ({ page }) => {
     await open(page, 'templates/admin-table.html');
     await page.getByRole('button', { name: 'Name', exact: true }).click();
