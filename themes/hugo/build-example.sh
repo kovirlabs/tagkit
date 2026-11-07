@@ -4,4 +4,4 @@
 #   docker run --rm -v "$PWD/..":/themes -w /themes/hugo --entrypoint sh ghcr.io/gohugoio/hugo:latest build-example.sh
 set -e
 cd "$(dirname "$0")"
-hugo --quiet --source exampleSite --themesDir ../.. --theme hugo --destination public --cleanDestinationDir
+hugo --logLevel warn --source exampleSite --themesDir ../.. --theme hugo --destination public --cleanDestinationDir
