@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="{{ config.theme.locale|default('en') }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- block title %}
+<title>{% if page and page.title and not page.is_homepage %}{{ page.title|striptags }} · {% endif %}{{ config.site_name }}</title>
+{%- endblock %}
+{%- set description = (page.meta.description if page and page.meta and page.meta.description) or config.site_description %}
+{%- if description %}
+<meta name="description" content="{{ description }}">
+{%- endif %}
+{%- if page and page.canonical_url %}
+<link rel="canonical" href="{{ page.canonical_url }}">
+{%- endif %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+{%- if config.theme.primary_color %}
+<style>:root { --color-primary: {{ config.theme.primary_color }}; }</style>
+{%- endif %}
+{%- if config.theme.tagaction != false %}
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+{%- endif %}
+{%- for path in config.extra_css %}
+<link rel="stylesheet" href="{{ path|url }}">
+{%- endfor %}
+{%- for script in config.extra_javascript %}
+{{ script|script_tag }}
+{%- endfor %}
+{%- block extrahead %}{% endblock %}
+</head>
+<body>
+{%- if nav|length > 1 %}
+<aside>
+  <nav aria-label="Documentation">
+    {%- with items = nav %}{% include "nav.html" %}{% endwith %}
+  </nav>
+</aside>
+{%- endif %}
+<header>
+  <nav>
+    <strong><a href="{{ nav.homepage.url|url if nav.homepage else '.'|url }}">{{ config.site_name }}</a></strong>
+    {%- if config.repo_url %}
+    <ul><li><a href="{{ config.repo_url }}">{{ config.repo_name or 'Source' }}</a></li></ul>
+    {%- endif %}
+  </nav>
+</header>
+<main>
+{%- block content %}
+  {%- set toc = (page.toc|first).children if page and page.toc|length == 1 and (page.toc|first).level == 1 else (page.toc if page else []) %}
+  {%- if toc|length > 1 %}
+  <aside>
+    <nav aria-label="On this page">
+      {%- with entries = toc %}{% include "toc.html" %}{% endwith %}
+    </nav>
+  </aside>
+  {%- endif %}
+  <article>
+    {{ page.content }}
+    {%- if page.edit_url %}
+    <p><small><a href="{{ page.edit_url }}">Edit this page</a></small></p>
+    {%- endif %}
+    {%- if page.previous_page or page.next_page %}
+    <nav aria-label="Pagination">
+      <ul>
+        {%- if page.previous_page %}
+        <li><a rel="prev" href="{{ page.previous_page.url|url }}">← {{ page.previous_page.title }}</a></li>
+        {%- endif %}
+        {%- if page.next_page %}
+        <li><a rel="next" href="{{ page.next_page.url|url }}">{{ page.next_page.title }} →</a></li>
+        {%- endif %}
+      </ul>
+    </nav>
+    {%- endif %}
+  </article>
+{%- endblock %}
+</main>
+<footer>
+  {%- if config.copyright %}
+  <p>{{ config.copyright }}</p>
+  {%- endif %}
+  <p><small>Built with <a href="https://www.mkdocs.org/">MkDocs</a> and <a href="https://github.com/kovirlabs/tagkit/tree/main/themes/mkdocs">TagKit</a></small></p>
+</footer>
+</body>
+</html>

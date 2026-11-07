@@ -1,0 +1,8 @@
+{#- The table of contents of one page, from its h2 and h3 headings. -#}
+<ul>
+{%- for entry in entries %}
+  <li><a href="{{ entry.url }}">{{ entry.title }}</a>
+  {%- if entry.children and entry.level < 3 %}{% with entries = entry.children %}{% include "toc.html" %}{% endwith %}{% endif %}
+  </li>
+{%- endfor %}
+</ul>

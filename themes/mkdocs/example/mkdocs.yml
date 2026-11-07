@@ -1,0 +1,19 @@
+site_name: shipit
+site_description: Deploy a folder of static files with one command.
+repo_url: https://github.com/example/shipit
+repo_name: GitHub
+copyright: © 2026 The shipit authors
+theme:
+  name: tagkit
+  primary_color: "#0f766e"
+nav:
+  - Home: index.md
+  - Guide:
+      - Install: guide/install.md
+      - Configure: guide/configure.md
+plugins: []
+markdown_extensions:
+  - toc
+  - tables
+  - footnotes
+  - admonition

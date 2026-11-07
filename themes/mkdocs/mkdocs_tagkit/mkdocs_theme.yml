@@ -1,0 +1,6 @@
+# Options set under `theme:` in mkdocs.yml.
+static_templates:
+  - 404.html
+locale: en
+primary_color: null   # brand color for links and buttons, for example "#0f766e"
+tagaction: true       # false leaves out the TagAction script

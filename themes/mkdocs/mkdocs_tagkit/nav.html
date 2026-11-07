@@ -1,0 +1,12 @@
+{#- The site navigation: sections become a heading and a nested list. -#}
+<ul>
+{%- for item in items %}
+  {%- if item.children %}
+  <li><strong>{{ item.title }}</strong>
+    {%- with items = item.children %}{% include "nav.html" %}{% endwith %}
+  </li>
+  {%- elif item.url is defined %}
+  <li><a href="{{ item.url|url }}"{% if item.active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+  {%- endif %}
+{%- endfor %}
+</ul>

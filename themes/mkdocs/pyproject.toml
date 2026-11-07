@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mkdocs-tagkit"
+version = "0.1.0"
+description = "A MkDocs theme in plain semantic HTML, styled by TagBrush.css and enhanced by TagAction."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
+dependencies = ["mkdocs>=1.5"]
+keywords = ["mkdocs", "theme", "documentation", "semantic-html", "tagbrush"]
+
+[project.urls]
+Homepage = "https://github.com/kovirlabs/tagkit/tree/main/themes/mkdocs"
+
+[project.entry-points."mkdocs.themes"]
+tagkit = "mkdocs_tagkit"
+
+[tool.setuptools]
+packages = ["mkdocs_tagkit"]
+
+[tool.setuptools.package-data]
+mkdocs_tagkit = ["*.html", "*.yml"]

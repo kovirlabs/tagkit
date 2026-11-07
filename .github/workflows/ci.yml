@@ -28,6 +28,13 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y pandoc
         timeout-minutes: 5
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build the MkDocs theme example
+        run: sh themes/mkdocs/build-example.sh
+
       - run: npx playwright install --with-deps chromium
         timeout-minutes: 5
 
