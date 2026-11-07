@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- A nonprofit starter site (`starters/nonprofit/`): 13 pages for a small nonprofit, built with `tagkit build` from shared includes, with donation and volunteer forms for static hosts, sortable and filterable event and budget tables, a live gift total, dialogs, a popover, a remembered FAQ, and a GitHub Pages workflow that runs TagCheck before publishing. Copy it with `npx degit kovirlabs/tagkit/starters/nonprofit`. Tests build it and check every page with TagCheck (including contrast and phone overflow), TagAction, links, and JavaScript off.
 - Tested with TagBrush.css 1.2.0.
 - The blog post template's lead photo opens in TagAction's viewer: its link now ends in `.jpg`, since TagAction only treats links to image files as photos. A test checks every linked photo. Found by the family agent evaluation.
 - The gallery (the GitHub Pages site) wears the Tag family brand: the family bar, the shared theme from kovirlabs.github.io/tagstack/brand.css, and a footer linking the family and the Jekyll and WordPress themes. The linked-photo test skips links that have text beside an image, like the family bar's.

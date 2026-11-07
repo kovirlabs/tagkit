@@ -25,6 +25,10 @@ Share a header, nav, and footer between static pages without a framework. In eac
 
 Then build: `npx @kovirlabs/tagkit build site/ public/` (`--check` also runs TagCheck). `file="…"` is relative to the page and `virtual="/…"` to the site folder. Pages get their includes filled in; other files are copied; names starting with `_` are left out. Links to the page being built get `aria-current="page"`, and root links (`/about.html`) in included pieces become relative, so write links in shared pieces from the site root. Don't use JavaScript or iframes to include headers and footers.
 
+## Starter sites
+
+- [Nonprofit](https://github.com/kovirlabs/tagkit/tree/main/starters/nonprofit): a 13-page static site for a small nonprofit (home, about, programs, events, news, get involved, donate, contact, financials, privacy, 404). Copy it with `npx degit kovirlabs/tagkit/starters/nonprofit my-site`, then `npm install && npm run build` (writes `public/` and runs TagCheck). Shared pieces are in `site/_includes/` (`head.html` holds the brand color). Forms post to a form service such as Formspree and the donate form goes to a payment link; search for `your-` to find the addresses to replace. Includes a GitHub Pages workflow. Guide: https://raw.githubusercontent.com/kovirlabs/tagkit/main/starters/nonprofit/README.md
+
 ## Themes
 
 - [Pandoc template](https://raw.githubusercontent.com/kovirlabs/tagkit/main/themes/pandoc/template.html): turn Markdown, Word, or any Pandoc input into a styled page: `pandoc notes.md --standalone --toc --template https://raw.githubusercontent.com/kovirlabs/tagkit/main/themes/pandoc/template.html -o notes.html`. Front matter `primary-color` sets the brand color; `no-tagaction: true` leaves out the script. Add `--mathjax` for equations.

@@ -28,6 +28,7 @@
     "templates/",
     "snippets/",
     "themes/",
+    "starters/",
     "snippets.json",
     "llms.txt",
     "ai/"
