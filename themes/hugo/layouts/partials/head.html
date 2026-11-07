@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if and .Title (not .IsHome) }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
+{{- with or .Description .Summary site.Params.description }}
+<meta name="description" content="{{ . | plainify | truncate 160 }}">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{- range .AlternativeOutputFormats }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{- end }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+{{- with site.Params.tagkit.primaryColor }}
+<style>:root { --color-primary: {{ . | safeCSS }}; }</style>
+{{- end }}
+{{- if ne site.Params.tagkit.tagaction false }}
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+{{- end }}
+{{- partial "head-custom.html" . }}

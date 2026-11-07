@@ -1,0 +1,10 @@
+# Defaults for sites using the theme; a site's own hugo.toml overrides them.
+[params.tagkit]
+  primaryColor = ""          # brand color, for example "#0f766e"
+  tagaction = true           # false leaves out the TagAction script
+  dateFormat = "January 2, 2006"
+  credit = true              # "Built with TagKit" in the footer
+
+[module]
+  [module.hugoVersion]
+    min = "0.128.0"

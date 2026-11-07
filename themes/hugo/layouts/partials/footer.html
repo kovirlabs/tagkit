@@ -1,0 +1,6 @@
+<footer>
+  {{- with site.Params.description }}
+  <p>{{ . }}</p>
+  {{- end }}
+  <p>{{ with site.Copyright }}{{ . }}{{ else }}© {{ now.Year }} {{ site.Title }}{{ end }}{{ if ne site.Params.tagkit.credit false }} · Built with <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/kovirlabs/tagkit/tree/main/themes/hugo">TagKit</a>{{ end }}</p>
+</footer>

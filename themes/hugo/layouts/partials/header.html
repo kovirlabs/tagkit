@@ -1,0 +1,23 @@
+<header>
+  <nav>
+    <strong><a href="{{ "/" | relLangURL }}">{{ site.Title }}</a></strong>
+    {{- $page := . }}
+    {{- with site.Menus.main }}
+    <ul>
+      {{- range . }}
+      {{- /* Current: the page itself, or a page inside the section the entry links to. */}}
+      {{- $current := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) (eq .URL $page.RelPermalink) (and (ne .URL "/") (hasPrefix $page.RelPermalink .URL)) }}
+      <li><a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    {{- with site.Sections }}
+    <ul>
+      {{- range . }}
+      <li><a href="{{ .RelPermalink }}"{{ if or (eq $page .) ($page.IsDescendant .) }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    {{- end }}
+  </nav>
+</header>

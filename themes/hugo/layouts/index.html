@@ -1,0 +1,18 @@
+{{ define "main" }}
+<hgroup>
+  <h1>{{ .Title | default site.Title }}</h1>
+  {{- with .Params.subtitle | default site.Params.description }}
+  <p>{{ . }}</p>
+  {{- end }}
+</hgroup>
+{{ .Content }}
+{{- $pages := where site.RegularPages "Type" "in" (site.Params.mainSections | default (slice "posts")) }}
+{{- with first (site.Params.tagkit.homeCount | default 6) $pages.ByDate.Reverse }}
+<section>
+  <h2>{{ site.Params.tagkit.homeTitle | default "Latest" }}</h2>
+  {{- range . }}
+  {{ partial "card.html" (dict "page" . "level" 3) }}
+  {{- end }}
+</section>
+{{- end }}
+{{ end }}

@@ -1,0 +1,6 @@
+{{- /* Highlight with CSS classes, which TagBrush.css colors in light and dark mode, instead of Hugo's inline colors. */ -}}
+{{- if .Type -}}
+{{ transform.Highlight .Inner .Type (merge .Options (dict "noClasses" false)) }}
+{{- else -}}
+<pre><code>{{ .Inner }}</code></pre>
+{{- end -}}

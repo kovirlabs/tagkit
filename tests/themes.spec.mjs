@@ -70,3 +70,28 @@ test.describe('MkDocs theme', () => {
     await expect(page.locator('head meta[name="description"]')).toHaveAttribute('content', 'Deploy a folder of static files with one command.');
   });
 });
+
+test.describe('Hugo theme', () => {
+  // Built by themes/hugo/build-example.sh (CI runs it before the tests).
+  const SITE = 'themes/hugo/exampleSite/public';
+  test.skip(!existsSync(`${SITE}/index.html`), 'Run themes/hugo/build-example.sh first (needs Hugo or Docker)');
+
+  test('every page passes TagCheck, including contrast and phone overflow', async () => {
+    test.setTimeout(120000);
+    const report = await checkFiles([SITE], { browser: true });
+    expect(report.files.length).toBeGreaterThanOrEqual(8);
+    expect(report.files.flatMap((f) => f.problems.map((p) => `${f.file}:${p.line} ${p.rule}: ${p.message}`))).toEqual([]);
+  });
+
+  test('menu marks the section, the post has contents, dates, and older/newer links', async ({ page }) => {
+    await page.route(/tagbrush@1/, (r) => r.fulfill({ path: 'node_modules/tagbrush/tagbrush.css', contentType: 'text/css' }));
+    await page.route(/tagaction@0/, (r) => r.fulfill({ path: 'node_modules/tagaction/tagaction.js', contentType: 'text/javascript' }));
+    await page.goto(pathToFileURL(resolve(`${SITE}/posts/a-year-of-saas/index.html`)).href);
+    await expect(page.locator('header nav a[aria-current="page"]')).toHaveText('Posts');
+    await expect(page.locator('main > aside nav[aria-label="On this page"] a')).toHaveText(['Charge from day one', 'Boring technology wins', 'The deploy script', 'The numbers']);
+    await expect(page.locator('article time')).toHaveAttribute('datetime', '2026-11-02');
+    await expect(page.locator('a[rel="prev"]')).toHaveText('← Why I price by the day');
+    await expect(page.locator('.highlight pre code span').first()).toBeAttached(); // highlighted with classes
+    await expect(page.locator('pre[style]')).toHaveCount(0); // not Hugo's inline colors
+  });
+});

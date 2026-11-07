@@ -1,0 +1,28 @@
+{{ define "main" }}
+<hgroup>
+  <h1>{{ .Title }}</h1>
+  {{- with .Params.subtitle }}
+  <p>{{ . }}</p>
+  {{- end }}
+</hgroup>
+{{ .Content }}
+{{- with .Paginator.Pages }}
+<section>
+  {{- range . }}
+  {{ partial "card.html" (dict "page" . "level" 2) }}
+  {{- end }}
+</section>
+{{- end }}
+{{- if gt .Paginator.TotalPages 1 }}
+<nav aria-label="Pagination">
+  <ul>
+    {{- with .Paginator.Prev }}
+    <li><a rel="prev" href="{{ .URL }}">← Newer</a></li>
+    {{- end }}
+    {{- with .Paginator.Next }}
+    <li><a rel="next" href="{{ .URL }}">Older →</a></li>
+    {{- end }}
+  </ul>
+</nav>
+{{- end }}
+{{ end }}

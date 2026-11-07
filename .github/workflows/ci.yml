@@ -35,6 +35,9 @@ jobs:
       - name: Build the MkDocs theme example
         run: sh themes/mkdocs/build-example.sh
 
+      - name: Build the Hugo theme example
+        run: docker run --rm -v "$PWD/themes":/themes -w /themes/hugo --entrypoint sh ghcr.io/gohugoio/hugo:latest build-example.sh
+
       - run: npx playwright install --with-deps chromium
         timeout-minutes: 5
 

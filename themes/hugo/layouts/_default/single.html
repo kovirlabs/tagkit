@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{- $toc := and (or .Params.toc site.Params.tagkit.toc) (ne .Params.toc false) (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") }}
+{{- if $toc }}
+<aside>
+  {{ replace .TableOfContents "<nav id=\"TableOfContents\">" "<nav id=\"TableOfContents\" aria-label=\"On this page\">" | safeHTML }}
+</aside>
+{{- end }}
+<article>
+  <hgroup>
+    <h1>{{ .Title }}</h1>
+    {{- if not .Date.IsZero }}
+    <p>{{ with .Params.author }}By {{ . }} · {{ end }}{{ partial "date.html" . }}</p>
+    {{- end }}
+  </hgroup>
+  {{ .Content }}
+  {{- if and (eq .Kind "page") (or .PrevInSection .NextInSection) }}
+  <nav aria-label="More posts">
+    <ul>
+      {{- /* Older post on the left, newer on the right (Hugo's PrevInSection is the older one). */}}
+      {{- with .PrevInSection }}
+      <li><a rel="prev" href="{{ .RelPermalink }}">← {{ .Title }}</a></li>
+      {{- end }}
+      {{- with .NextInSection }}
+      <li><a rel="next" href="{{ .RelPermalink }}">{{ .Title }} →</a></li>
+      {{- end }}
+    </ul>
+  </nav>
+  {{- end }}
+</article>
+{{ end }}

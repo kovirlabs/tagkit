@@ -1,0 +1,8 @@
+name = "TagKit"
+license = "Apache-2.0"
+licenselink = "https://github.com/kovirlabs/tagkit/blob/main/LICENSE"
+description = "Plain semantic HTML styled by TagBrush.css and enhanced by TagAction: light and dark mode, no theme CSS or JavaScript."
+homepage = "https://github.com/kovirlabs/tagkit/tree/main/themes/hugo"
+tags = ["blog", "minimal", "accessible", "dark mode", "light", "dark", "responsive", "no-js"]
+features = ["dark mode", "table of contents", "syntax highlighting", "accessible", "no build step"]
+min_version = "0.128.0"

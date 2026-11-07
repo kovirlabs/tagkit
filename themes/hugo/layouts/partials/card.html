@@ -1,0 +1,13 @@
+{{- /* Called with (dict "page" . "level" 2): the heading level depends on where the card sits. */ -}}
+{{- $level := .level | default 3 }}
+{{- with .page }}
+<article>
+  <h{{ $level }}><a href="{{ .RelPermalink }}">{{ .Title }}</a></h{{ $level }}>
+  {{- with .Summary }}
+  <p>{{ . | plainify | truncate 160 }}</p>
+  {{- end }}
+  {{- if not .Date.IsZero }}
+  <footer>{{ partial "date.html" . }}</footer>
+  {{- end }}
+</article>
+{{- end }}
