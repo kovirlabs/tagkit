@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Row actions with a confirm dialog · TagKit preview</title>
+<meta name="description" content="each table row has a button that opens its own small dialog, which posts that row's action. One dialog per row works with no page script; put them after the table. data-tagaction=&quot;off&quot; keeps the Actions column unsortable.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<main>
+<h1>Row actions with a confirm dialog</h1>
+<table>
+  <thead>
+    <tr><th>Invoice</th><th>Client</th><th>Amount</th><th data-tagaction="off">Actions</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><a href="/invoices/1042">#1042</a></td><td>Harbor Bakery</td><td><data value="420">$420.00</data></td><td><button class="secondary" commandfor="void-1042" command="show-modal" aria-label="Void invoice #1042">Void</button></td></tr>
+    <tr><td><a href="/invoices/1041">#1041</a></td><td>Lumen Studio</td><td><data value="1250">$1,250.00</data></td><td><button class="secondary" commandfor="void-1041" command="show-modal" aria-label="Void invoice #1041">Void</button></td></tr>
+    <tr><td><a href="/invoices/1040">#1040</a></td><td>North Fork Farm</td><td><data value="86.5">$86.50</data></td><td><button class="secondary" commandfor="void-1040" command="show-modal" aria-label="Void invoice #1040">Void</button></td></tr>
+  </tbody>
+</table>
+<dialog id="void-1042">
+  <form method="post" action="/invoices/1042/void">
+    <h2>Void invoice #1042?</h2>
+    <p>Harbor Bakery won't be able to pay it. This can't be undone.</p>
+    <footer>
+      <button type="button" class="secondary" commandfor="void-1042" command="close">Cancel</button>
+      <button>Void invoice</button>
+    </footer>
+  </form>
+</dialog>
+<dialog id="void-1041">
+  <form method="post" action="/invoices/1041/void">
+    <h2>Void invoice #1041?</h2>
+    <p>Lumen Studio won't be able to pay it. This can't be undone.</p>
+    <footer>
+      <button type="button" class="secondary" commandfor="void-1041" command="close">Cancel</button>
+      <button>Void invoice</button>
+    </footer>
+  </form>
+</dialog>
+<dialog id="void-1040">
+  <form method="post" action="/invoices/1040/void">
+    <h2>Void invoice #1040?</h2>
+    <p>North Fork Farm won't be able to pay it. This can't be undone.</p>
+    <footer>
+      <button type="button" class="secondary" commandfor="void-1040" command="close">Cancel</button>
+      <button>Void invoice</button>
+    </footer>
+  </form>
+</dialog>
+</main>
+</body>
+</html>
