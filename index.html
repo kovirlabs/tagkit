@@ -75,8 +75,8 @@
   &lt;/article&gt;
 &lt;/section&gt;</code></pre>
     <h3 id="confirm-dialog">Confirm dialog</h3>
-    <p>a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it. <a href="preview/confirm-dialog.html">Preview the confirm dialog</a>.</p>
-    <pre><code>&lt;button class="secondary" commandfor="delete-project" command="show-modal"&gt;Delete project&lt;/button&gt;
+    <p>a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it. The destructive action is a red button (data-tone="error"). <a href="preview/confirm-dialog.html">Preview the confirm dialog</a>.</p>
+    <pre><code>&lt;button class="outline" data-tone="error" commandfor="delete-project" command="show-modal"&gt;Delete project&lt;/button&gt;
 &lt;dialog id="delete-project"&gt;
   &lt;form method="post" action="/projects/42/delete"&gt;
     &lt;header&gt;
@@ -86,7 +86,7 @@
     &lt;p&gt;This deletes the project and its 128 time entries. It can't be undone.&lt;/p&gt;
     &lt;footer&gt;
       &lt;button type="button" class="secondary" commandfor="delete-project" command="close"&gt;Cancel&lt;/button&gt;
-      &lt;button&gt;Delete project&lt;/button&gt;
+      &lt;button data-tone="error"&gt;Delete project&lt;/button&gt;
     &lt;/footer&gt;
   &lt;/form&gt;
 &lt;/dialog&gt;</code></pre>
@@ -297,6 +297,35 @@
     &lt;footer&gt;&lt;a class="button outline" href="/contact"&gt;Talk to us&lt;/a&gt;&lt;/footer&gt;
   &lt;/article&gt;
 &lt;/section&gt;</code></pre>
+    <h3 id="repeatable-rows">Repeatable rows</h3>
+    <p>a form where people add as many rows as they need and remove any of them (TagAction's --clone and --remove). Without JavaScript the first row still works and the Add and Remove buttons stay hidden. <a href="preview/repeatable-rows.html">Preview the repeatable rows</a>.</p>
+    <pre><code>&lt;form action="/expenses" method="post"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Expenses&lt;/legend&gt;
+    &lt;ol&gt;
+      &lt;li id="expense"&gt;
+        &lt;div role="group"&gt;
+          &lt;input name="what" aria-label="What it was for" placeholder="What it was for" required&gt;
+          &lt;input type="number" name="amount" aria-label="Amount in dollars" placeholder="Amount" min="0" step="0.01" required&gt;
+          &lt;button type="button" class="outline" data-tone="error" commandfor="expense" command="--remove" hidden&gt;Remove&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;template id="new-expense"&gt;
+        &lt;li id="expense"&gt;
+          &lt;div role="group"&gt;
+            &lt;input name="what" aria-label="What it was for" placeholder="What it was for" required&gt;
+            &lt;input type="number" name="amount" aria-label="Amount in dollars" placeholder="Amount" min="0" step="0.01" required&gt;
+            &lt;button type="button" class="outline" data-tone="error" commandfor="expense" command="--remove" hidden&gt;Remove&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/template&gt;
+    &lt;/ol&gt;
+  &lt;/fieldset&gt;
+  &lt;div role="group"&gt;
+    &lt;button type="button" class="secondary" commandfor="new-expense" command="--clone" hidden&gt;Add expense&lt;/button&gt;
+    &lt;button&gt;Submit report&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
     <h3 id="search-bar">Search bar</h3>
     <p>a search field with filters and a button in one row, sent to the server as a GET form. <a href="preview/search-bar.html">Preview the search bar</a>.</p>
     <pre><code>&lt;form action="/users" method="get"&gt;

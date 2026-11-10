@@ -19,7 +19,7 @@
     {
       "id": "confirm-dialog",
       "name": "Confirm dialog",
-      "description": "a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it.",
+      "description": "a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it. The destructive action is a red button (data-tone=\"error\").",
       "where": "main",
       "file": "snippets/confirm-dialog.html",
       "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/confirm-dialog.html"
@@ -95,6 +95,14 @@
       "where": "main",
       "file": "snippets/pricing.html",
       "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/pricing.html"
+    },
+    {
+      "id": "repeatable-rows",
+      "name": "Repeatable rows",
+      "description": "a form where people add as many rows as they need and remove any of them (TagAction's --clone and --remove). Without JavaScript the first row still works and the Add and Remove buttons stay hidden.",
+      "where": "main",
+      "file": "snippets/repeatable-rows.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/repeatable-rows.html"
     },
     {
       "id": "search-bar",

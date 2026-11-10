@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- New snippet: repeatable rows, a form where people add rows with TagAction's `--clone` and remove any of them with `--remove` (TagAction's next release). The Add and Remove buttons are written `hidden`, so without JavaScript the first row still works.
+- The confirm dialog's destructive button is red: `data-tone="error"` on the Delete button, and an outlined red opener (TagBrush.css's next release).
 - MkDocs theme: search. `search: titles` (the default) finds pages and sections by title from a box above the sidebar, filtered by TagAction 0.3's search-results list; `search: pagefind` uses Pagefind for full text; `search: false` leaves it out. The README no longer lists callouts as missing: TagBrush.css 1.2 styles `!!! note` once the `admonition` extension is on.
 - Tested with TagBrush.css 1.2.0.
 - The blog post template's lead photo opens in TagAction's viewer: its link now ends in `.jpg`, since TagAction only treats links to image files as photos. A test checks every linked photo. Found by the family agent evaluation.
