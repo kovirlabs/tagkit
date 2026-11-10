@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Prices in the landing template and the pricing snippet are written `<strong>$12</strong> <small>per month</small>`, which TagBrush.css 2.0 shows as a large figure and a small muted period (1.x shows it as before).
 - New snippet: repeatable rows, a form where people add rows with TagAction's `--clone` and remove any of them with `--remove` (TagAction's next release). The Add and Remove buttons are written `hidden`, so without JavaScript the first row still works.
 - The confirm dialog's destructive button is red: `data-tone="error"` on the Delete button, and an outlined red opener (TagBrush.css's next release).
 - MkDocs theme: search. `search: titles` (the default) finds pages and sections by title from a box above the sidebar, filtered by TagAction 0.3's search-results list; `search: pagefind` uses Pagefind for full text; `search: false` leaves it out. The README no longer lists callouts as missing: TagBrush.css 1.2 styles `!!! note` once the `admonition` extension is on.
