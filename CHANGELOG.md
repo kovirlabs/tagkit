@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- MkDocs theme: search. `search: titles` (the default) finds pages and sections by title from a box above the sidebar, filtered by TagAction 0.3's search-results list; `search: pagefind` uses Pagefind for full text; `search: false` leaves it out. The README no longer lists callouts as missing: TagBrush.css 1.2 styles `!!! note` once the `admonition` extension is on.
 - Tested with TagBrush.css 1.2.0.
 - The blog post template's lead photo opens in TagAction's viewer: its link now ends in `.jpg`, since TagAction only treats links to image files as photos. A test checks every linked photo. Found by the family agent evaluation.
 - The gallery (the GitHub Pages site) wears the Tag family brand: the family bar, the shared theme from kovirlabs.github.io/tagstack/brand.css, and a footer linking the family and the Jekyll and WordPress themes. The linked-photo test skips links that have text beside an image, like the family bar's.

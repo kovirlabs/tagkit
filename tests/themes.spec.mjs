@@ -62,12 +62,21 @@ test.describe('MkDocs theme', () => {
     await page.route(/tagbrush@1/, (r) => r.fulfill({ path: 'node_modules/tagbrush/tagbrush.css', contentType: 'text/css' }));
     await page.route(/tagaction@0/, (r) => r.fulfill({ path: 'node_modules/tagaction/tagaction.js', contentType: 'text/javascript' }));
     await page.goto(pathToFileURL(resolve(`${SITE}/guide/install/index.html`)).href);
-    await expect(page.locator('body > aside nav a[aria-current="page"]')).toHaveText('Install');
+    await expect(page.locator('body > aside nav[aria-label="Documentation"] a[aria-current="page"]')).toHaveText('Install');
     await expect(page.locator('main > aside nav[aria-label="On this page"] a')).toHaveText(['Requirements', 'With pip', 'Check the install']);
     await expect(page.locator('a[rel="prev"]')).toHaveText('← Home');
     await expect(page.locator('a[rel="next"]')).toHaveText('Configure →');
     await expect(page.getByRole('button', { name: 'Copy' })).toHaveCount(2);
     await expect(page.locator('head meta[name="description"]')).toHaveAttribute('content', 'Deploy a folder of static files with one command.');
+  });
+
+  test('search: a box over a list of every page and section, both hidden until TagAction shows them', async () => {
+    const { readFileSync } = await import('node:fs');
+    const html = readFileSync(`${SITE}/guide/install/index.html`, 'utf8');
+    expect(html).toMatch(/<input type="search" aria-label="Search the docs" aria-controls="tagkit-search" hidden>/);
+    expect(html).toMatch(/<ul id="tagkit-search" hidden>/);
+    const results = [...html.matchAll(/<li><a href="[^"]*">([^<]+)<\/a><\/li>/g)].map((m) => m[1]);
+    for (const title of ['Install', 'Install: With pip', 'Configure: Environment variables', 'Home: Why shipit']) expect(results).toContain(title);
   });
 });
 

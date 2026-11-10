@@ -20,6 +20,11 @@
 {%- if config.theme.tagaction != false %}
 <script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
 {%- endif %}
+{%- set search = config.theme.search %}
+{%- if search == 'pagefind' %}
+<link rel="stylesheet" href="{{ 'pagefind/pagefind-ui.css'|url }}">
+<script src="{{ 'pagefind/pagefind-ui.js'|url }}" defer></script>
+{%- endif %}
 {%- for path in config.extra_css %}
 <link rel="stylesheet" href="{{ path|url }}">
 {%- endfor %}
@@ -31,6 +36,28 @@
 <body>
 {%- if nav|length > 1 %}
 <aside>
+  {%- if search == 'pagefind' %}
+  <search id="pagefind-search" data-pagefind-ui></search>
+  <script type="module">
+    addEventListener('DOMContentLoaded', () => new PagefindUI({ element: '#pagefind-search', showSubResults: true, showImages: false }));
+  </script>
+  {%- elif search and config.theme.tagaction != false %}
+  {#- Search by page and section title: TagAction filters this list as you type.
+      Both are hidden without JavaScript, where the sidebar is the way around. #}
+  <search>
+    <input type="search" aria-label="Search the docs" aria-controls="tagkit-search" hidden>
+  </search>
+  <nav aria-label="Search results">
+  <ul id="tagkit-search" hidden>
+    {%- for doc in nav.pages %}
+    <li><a href="{{ doc.url|url }}">{{ doc.title }}</a></li>
+    {%- for entry in doc.toc %}{% for section in ([entry] if entry.level == 2 else entry.children) %}
+    <li><a href="{{ doc.url|url }}{{ section.url }}">{{ doc.title }}: {{ section.title }}</a></li>
+    {%- endfor %}{% endfor %}
+    {%- endfor %}
+  </ul>
+  </nav>
+  {%- endif %}
   <nav aria-label="Documentation">
     {%- with items = nav %}{% include "nav.html" %}{% endwith %}
   </nav>
@@ -54,7 +81,7 @@
     </nav>
   </aside>
   {%- endif %}
-  <article>
+  <article{% if search == 'pagefind' %} data-pagefind-body{% endif %}>
     {{ page.content }}
     {%- if page.edit_url %}
     <p><small><a href="{{ page.edit_url }}">Edit this page</a></small></p>
