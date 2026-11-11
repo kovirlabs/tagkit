@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- New snippet: photo gallery, linked photos in a grid of figures that TagAction's viewer steps through (Previous, Next, arrow keys); asked for in the family evaluation, round 1.
+- The dashboard's sidebar folds behind a "Sections" button on phones (TagBrush.css's sidebar menu pattern): at 360px its whole link list used to sit between the top bar and the page.
 - Prices in the landing template and the pricing snippet are written `<strong>$12</strong> <small>per month</small>`, which TagBrush.css 2.0 shows as a large figure and a small muted period (1.x shows it as before).
 - New snippet: repeatable rows, a form where people add rows with TagAction's `--clone` and remove any of them with `--remove` (TagAction's next release). The Add and Remove buttons are written `hidden`, so without JavaScript the first row still works.
 - The confirm dialog's destructive button is red: `data-tone="error"` on the Delete button, and an outlined red opener (TagBrush.css's next release).

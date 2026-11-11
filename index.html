@@ -36,7 +36,7 @@
     <ul>
       <li><a href="templates/admin-table.html">Admin table</a>: a page to manage records, with breadcrumbs, a title row with an action, a filter box, a sortable table with status badges, and an "invite" form in a modal dialog.</li>
       <li><a href="templates/blog-post.html">Blog post</a>: an article with author and date, a lead image that enlarges, sections with anchor links, a pull quote, code with a copy button, a sortable table, a callout, and related posts.</li>
-      <li><a href="templates/dashboard.html">Dashboard</a>: an app page with a full-height sidebar, a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list.</li>
+      <li><a href="templates/dashboard.html">Dashboard</a>: an app page with a full-height sidebar (a menu button on phones), a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list.</li>
       <li><a href="templates/docs.html">Docs page</a>: breadcrumbs, a generated table of contents that follows the scroll, heading anchor links, code with copy buttons, a tip callout, and previous/next links.</li>
       <li><a href="templates/landing.html">Landing page</a>: a hero with a picture, a feature grid, pricing plans, testimonials, an FAQ accordion, a call to action, and a footer with link columns.</li>
       <li><a href="templates/signup.html">Sign-up page</a>: a single-form page with help text, a password show/hide toggle, checkboxes, a switch, a character counter, and validation messages under each field.</li>
@@ -218,6 +218,29 @@
   &lt;/nav&gt;
   &lt;p&gt;© 2026 Lumen Labs&lt;/p&gt;
 &lt;/footer&gt;</code></pre>
+    <h3 id="gallery">Photo gallery</h3>
+    <p>linked photos in a grid of figures. TagAction opens a photo in a viewer and steps through the section's photos with Previous, Next, and the arrow keys; without JavaScript each link opens the full-size photo. <a href="preview/gallery.html">Preview the photo gallery</a>.</p>
+    <pre><code>&lt;section&gt;
+  &lt;h2&gt;From the workshop&lt;/h2&gt;
+  &lt;div class="grid" style="--grid-min-column: 12rem"&gt;
+    &lt;figure&gt;
+      &lt;a href="https://picsum.photos/id/1060/1600/1200.jpg"&gt;&lt;img src="https://picsum.photos/id/1060/600/450.jpg" alt="A barista pouring milk into a cup" width="600" height="450" loading="lazy"&gt;&lt;/a&gt;
+      &lt;figcaption&gt;Morning pour&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+      &lt;a href="https://picsum.photos/id/1080/1600/1200.jpg"&gt;&lt;img src="https://picsum.photos/id/1080/600/450.jpg" alt="Strawberries in a bowl on a wooden table" width="600" height="450" loading="lazy"&gt;&lt;/a&gt;
+      &lt;figcaption&gt;Market haul&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+      &lt;a href="https://picsum.photos/id/1073/1600/1200.jpg"&gt;&lt;img src="https://picsum.photos/id/1073/600/450.jpg" alt="A row of books on a shelf" width="600" height="450" loading="lazy"&gt;&lt;/a&gt;
+      &lt;figcaption&gt;The reading shelf&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+      &lt;a href="https://picsum.photos/id/1067/1600/1200.jpg"&gt;&lt;img src="https://picsum.photos/id/1067/600/450.jpg" alt="A city street at dusk" width="600" height="450" loading="lazy"&gt;&lt;/a&gt;
+      &lt;figcaption&gt;Walk home&lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
     <h3 id="hero">Hero</h3>
     <p>the page header of a landing page, with a big promise, two calls to action, and a picture beside them. Replace the &lt;header&gt; of your page. <a href="preview/hero.html">Preview the hero</a>.</p>
     <pre><code>&lt;header&gt;

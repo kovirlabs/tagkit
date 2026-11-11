@@ -1,4 +1,4 @@
-<!-- Dashboard: an app page with a full-height sidebar, a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list. -->
+<!-- Dashboard: an app page with a full-height sidebar (a menu button on phones), a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list. -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,14 +11,17 @@
 </head>
 <body>
 <aside>
-  <nav aria-label="Sections">
-    <ul>
-      <li><a href="/dashboard" aria-current="page">Dashboard</a></li>
-      <li><a href="/orders">Orders</a></li>
-      <li><a href="/customers">Customers</a></li>
-      <li><a href="/settings">Settings</a></li>
-    </ul>
-  </nav>
+  <button class="secondary" popovertarget="sections">Sections</button>
+  <div popover id="sections">
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="/dashboard" aria-current="page">Dashboard</a></li>
+        <li><a href="/orders">Orders</a></li>
+        <li><a href="/customers">Customers</a></li>
+        <li><a href="/settings">Settings</a></li>
+      </ul>
+    </nav>
+  </div>
 </aside>
 <header>
   <nav>

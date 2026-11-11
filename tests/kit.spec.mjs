@@ -84,6 +84,27 @@ test.describe('with TagAction', () => {
     await expect(page.locator('#account-menu')).toBeHidden();
   });
 
+  test('the gallery steps through its photos in the viewer', async ({ page }) => {
+    await open(page, 'preview/gallery.html');
+    await page.getByRole('link', { name: 'Strawberries in a bowl on a wooden table' }).click();
+    const viewer = page.locator('[data-tag="viewer"]');
+    await expect(viewer.locator('output')).toHaveText('2 of 4');
+    await page.keyboard.press('ArrowRight');
+    await expect(viewer.locator('figcaption')).toHaveText('The reading shelf');
+  });
+
+  test('the dashboard sidebar folds behind a Sections button on a phone', async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 800 });
+    await open(page, 'templates/dashboard.html');
+    await expect(page.getByRole('link', { name: 'Orders', exact: true })).toBeHidden();
+    await page.getByRole('button', { name: 'Sections' }).click();
+    await expect(page.getByRole('link', { name: 'Orders', exact: true })).toBeVisible();
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('button', { name: 'Sections' })).toBeHidden();
+    await expect(page.getByRole('link', { name: 'Orders', exact: true })).toBeVisible();
+  });
+
   test('the docs page builds its table of contents and code copy buttons', async ({ page }) => {
     await open(page, 'templates/docs.html');
     await expect(page.locator('nav[data-tag-toc] a')).toHaveText(['Requirements', 'Install', 'Check the install', 'Your first deploy']);
