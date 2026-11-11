@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+<title>Contact · Riverbend Food Share</title>
+<meta name="description" content="Write, call, or visit Riverbend Food Share at 214 Mill Street. We reply within two working days.">
+</head>
+<body>
+<header>
+  <!--#include virtual="/_includes/nav.html" -->
+</header>
+<main>
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a aria-current="page">Contact</a></li>
+    </ol>
+  </nav>
+  <hgroup>
+    <h1>Contact us</h1>
+    <p>Write, call, or stop by. A real person reads every message.</p>
+  </hgroup>
+
+  <section>
+    <h2 id="reach-us">Reach us</h2>
+    <article>
+      <h3>Visit</h3>
+      <address>214 Mill Street<br>Riverbend, ST 00000</address>
+      <p>Office open Monday to Friday, 9 to 4.</p>
+    </article>
+    <article>
+      <h3>Call</h3>
+      <p><a href="tel:+15550100200">(555) 010-0200</a></p>
+      <p>Leave a message after hours; we call back the next working day.</p>
+    </article>
+    <article>
+      <h3>Email</h3>
+      <p><a href="mailto:hello@example.org">hello@example.org</a></p>
+      <p>For press: <a href="mailto:press@example.org">press@example.org</a></p>
+    </article>
+  </section>
+
+  <section>
+    <h2 id="write">Send a message</h2>
+    <article>
+      <!-- Replace the action with your own form address (Formspree, Basin, Getform, Netlify Forms, …). -->
+      <form action="https://formspree.io/f/your-contact-form-id" method="post">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" autocomplete="name" required>
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" name="email" autocomplete="email" required>
+        <small>We reply within two working days.</small>
+        <label for="contact-topic">Topic</label>
+        <select id="contact-topic" name="topic">
+          <option>Getting food</option>
+          <option>Volunteering</option>
+          <option>Donations and receipts</option>
+          <option>Home Delivery sign-up</option>
+          <option>Something else</option>
+        </select>
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" maxlength="1000" required></textarea>
+        <label><input type="checkbox" name="copy"> Send me a copy</label>
+        <button>Send message</button>
+      </form>
+    </article>
+  </section>
+</main>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>

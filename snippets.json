@@ -97,6 +97,14 @@
       "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/pricing.html"
     },
     {
+      "id": "row-confirm",
+      "name": "Row actions with a confirm dialog",
+      "description": "each table row has a button that opens its own small dialog, which posts that row's action. One dialog per row works with no page script; put them after the table. data-tagaction=\"off\" keeps the Actions column unsortable.",
+      "where": "main",
+      "file": "snippets/row-confirm.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/row-confirm.html"
+    },
+    {
       "id": "search-bar",
       "name": "Search bar",
       "description": "a search field with filters and a button in one row, sent to the server as a GET form.",
