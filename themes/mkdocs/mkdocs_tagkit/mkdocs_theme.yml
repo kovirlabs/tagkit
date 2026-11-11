@@ -4,3 +4,4 @@ static_templates:
 locale: en
 primary_color: null   # brand color for links and buttons, for example "#0f766e"
 tagaction: true       # false leaves out the TagAction script
+search: titles        # titles: search page and section titles (needs TagAction); pagefind: full text with Pagefind; false: no search

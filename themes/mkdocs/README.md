@@ -12,6 +12,9 @@ theme:
   name: tagkit
   primary_color: "#0f766e"   # optional brand color
   tagaction: true            # false leaves out the TagAction script
+  search: titles             # titles (default), pagefind, or false
+markdown_extensions:
+  - admonition               # !!! note callouts
 ```
 
 The page is styled by [TagBrush.css](https://github.com/kovirlabs/tagbrush) and enhanced by [TagAction](https://github.com/kovirlabs/tagaction), both loaded from a CDN.
@@ -24,10 +27,14 @@ The page is styled by [TagBrush.css](https://github.com/kovirlabs/tagbrush) and 
 - Tables, footnotes, and code styled by TagBrush.css; Copy buttons on code, sortable tables, and "#" links on headings from TagAction. Everything works with JavaScript off.
 - `description` in a page's front matter (or `site_description`) becomes its meta description.
 
-## Not included (yet)
+- Search above the sidebar (see below).
+- Callouts: `!!! note`, `!!! warning`, `!!! tip` and the other admonition kinds are colored callouts (TagBrush.css 1.2 and later). Turn on the `admonition` Markdown extension, or MkDocs leaves them as plain text.
 
-- Search: MkDocs' search plugin needs theme JavaScript. Add `plugins: []` to skip building its index.
-- Admonitions (`!!! note`) show as plain text until TagBrush.css styles them.
+## Search
+
+- `search: titles` (the default) puts a search box above the sidebar that finds pages and their sections by title as you type. The theme writes a list of every page and `##` section into each page, and TagAction filters it, so there's no index to build and no script of its own. It needs TagAction 0.3 or later, and like everything TagAction adds, it's hidden when JavaScript is off. MkDocs' own search plugin isn't used; add `plugins: []` to skip building its index.
+- `search: pagefind` searches the full text with [Pagefind](https://pagefind.app/), which builds a static index after MkDocs: run `npx pagefind --site site` after `mkdocs build`. The theme loads Pagefind's search box from `pagefind/` and marks each page's article as the text to index.
+- `search: false` leaves search out.
 
 ## Tested
 
