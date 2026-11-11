@@ -19,7 +19,7 @@
     {
       "id": "confirm-dialog",
       "name": "Confirm dialog",
-      "description": "a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it.",
+      "description": "a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it. The destructive action is a red button (data-tone=\"error\").",
       "where": "main",
       "file": "snippets/confirm-dialog.html",
       "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/confirm-dialog.html"
@@ -73,6 +73,14 @@
       "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/footer-columns.html"
     },
     {
+      "id": "gallery",
+      "name": "Photo gallery",
+      "description": "linked photos in a grid of figures. TagAction opens a photo in a viewer and steps through the section's photos with Previous, Next, and the arrow keys; without JavaScript each link opens the full-size photo.",
+      "where": "main",
+      "file": "snippets/gallery.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/gallery.html"
+    },
+    {
       "id": "hero",
       "name": "Hero",
       "description": "the page header of a landing page, with a big promise, two calls to action, and a picture beside them. Replace the <header> of your page.",
@@ -95,6 +103,14 @@
       "where": "main",
       "file": "snippets/pricing.html",
       "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/pricing.html"
+    },
+    {
+      "id": "repeatable-rows",
+      "name": "Repeatable rows",
+      "description": "a form where people add as many rows as they need and remove any of them (TagAction's --clone and --remove). Without JavaScript the first row still works and the Add and Remove buttons stay hidden.",
+      "where": "main",
+      "file": "snippets/repeatable-rows.html",
+      "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/repeatable-rows.html"
     },
     {
       "id": "row-confirm",
@@ -163,7 +179,7 @@
     {
       "id": "dashboard",
       "name": "Dashboard",
-      "description": "an app page with a full-height sidebar, a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list.",
+      "description": "an app page with a full-height sidebar (a menu button on phones), a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list.",
       "file": "templates/dashboard.html",
       "url": "https://raw.githubusercontent.com/kovirlabs/tagkit/main/templates/dashboard.html"
     },

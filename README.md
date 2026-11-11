@@ -10,7 +10,7 @@ TagKit is part of the Tag family. Its HTML is styled by [TagBrush.css](https://g
 
 **Page templates** (`templates/`): landing page, dashboard, docs page, blog post, sign-up page, admin table. Each is a complete page; open it and copy the source.
 
-**Snippets** (`snippets/`): hero, feature grid, pricing table, testimonials, FAQ, card grid, stat tiles, page header, data table, search bar, confirm dialog, user menu, contact form, callouts, sidebar layout, docs layout, footer columns. Each file starts with a comment that says what it is and where it goes. Most go inside `<main>`; ones marked `(body)` are page-level.
+**Snippets** (`snippets/`): hero, feature grid, pricing table, testimonials, FAQ, card grid, stat tiles, page header, data table, search bar, confirm dialog (with a red destructive button), user menu, contact form, repeatable rows (add and remove), photo gallery, callouts, sidebar layout, docs layout, footer columns. Each file starts with a comment that says what it is and where it goes. Most go inside `<main>`; ones marked `(body)` are page-level.
 
 **Starter sites** (`starters/`): a whole multi-page site to copy and make your own. The [nonprofit starter](starters/nonprofit/) has 13 pages (home, about, programs, events, news, get involved, donate, contact, financials, privacy, 404), with donation and volunteer forms that work on any static host, built with `tagkit build`, checked with TagCheck, and published to GitHub Pages by an included workflow: `npx degit kovirlabs/tagkit/starters/nonprofit my-site`.
 

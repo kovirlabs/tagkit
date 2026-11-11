@@ -1,0 +1,28 @@
+<!-- Repeatable rows: a form where people add as many rows as they need and remove any of them (TagAction's --clone and --remove). Without JavaScript the first row still works and the Add and Remove buttons stay hidden. -->
+<form action="/expenses" method="post">
+  <fieldset>
+    <legend>Expenses</legend>
+    <ol>
+      <li id="expense">
+        <div role="group">
+          <input name="what" aria-label="What it was for" placeholder="What it was for" required>
+          <input type="number" name="amount" aria-label="Amount in dollars" placeholder="Amount" min="0" step="0.01" required>
+          <button type="button" class="outline" data-tone="error" commandfor="expense" command="--remove" hidden>Remove</button>
+        </div>
+      </li>
+      <template id="new-expense">
+        <li id="expense">
+          <div role="group">
+            <input name="what" aria-label="What it was for" placeholder="What it was for" required>
+            <input type="number" name="amount" aria-label="Amount in dollars" placeholder="Amount" min="0" step="0.01" required>
+            <button type="button" class="outline" data-tone="error" commandfor="expense" command="--remove" hidden>Remove</button>
+          </div>
+        </li>
+      </template>
+    </ol>
+  </fieldset>
+  <div role="group">
+    <button type="button" class="secondary" commandfor="new-expense" command="--clone" hidden>Add expense</button>
+    <button>Submit report</button>
+  </div>
+</form>

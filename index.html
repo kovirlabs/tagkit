@@ -36,7 +36,7 @@
     <ul>
       <li><a href="templates/admin-table.html">Admin table</a>: a page to manage records, with breadcrumbs, a title row with an action, a filter box, a sortable table with status badges, and an "invite" form in a modal dialog.</li>
       <li><a href="templates/blog-post.html">Blog post</a>: an article with author and date, a lead image that enlarges, sections with anchor links, a pull quote, code with a copy button, a sortable table, a callout, and related posts.</li>
-      <li><a href="templates/dashboard.html">Dashboard</a>: an app page with a full-height sidebar, a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list.</li>
+      <li><a href="templates/dashboard.html">Dashboard</a>: an app page with a full-height sidebar (a menu button on phones), a top bar with an account menu, stat tiles, a sortable and filterable orders table, and a ranked list.</li>
       <li><a href="templates/docs.html">Docs page</a>: breadcrumbs, a generated table of contents that follows the scroll, heading anchor links, code with copy buttons, a tip callout, and previous/next links.</li>
       <li><a href="templates/landing.html">Landing page</a>: a hero with a picture, a feature grid, pricing plans, testimonials, an FAQ accordion, a call to action, and a footer with link columns.</li>
       <li><a href="templates/signup.html">Sign-up page</a>: a single-form page with help text, a password show/hide toggle, checkboxes, a switch, a character counter, and validation messages under each field.</li>
@@ -75,8 +75,8 @@
   &lt;/article&gt;
 &lt;/section&gt;</code></pre>
     <h3 id="confirm-dialog">Confirm dialog</h3>
-    <p>a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it. <a href="preview/confirm-dialog.html">Preview the confirm dialog</a>.</p>
-    <pre><code>&lt;button class="secondary" commandfor="delete-project" command="show-modal"&gt;Delete project&lt;/button&gt;
+    <p>a button opens a modal with no page script (commandfor/command); clicking the backdrop, Escape, or Cancel closes it. The destructive action is a red button (data-tone="error"). <a href="preview/confirm-dialog.html">Preview the confirm dialog</a>.</p>
+    <pre><code>&lt;button class="outline" data-tone="error" commandfor="delete-project" command="show-modal"&gt;Delete project&lt;/button&gt;
 &lt;dialog id="delete-project"&gt;
   &lt;form method="post" action="/projects/42/delete"&gt;
     &lt;header&gt;
@@ -86,7 +86,7 @@
     &lt;p&gt;This deletes the project and its 128 time entries. It can't be undone.&lt;/p&gt;
     &lt;footer&gt;
       &lt;button type="button" class="secondary" commandfor="delete-project" command="close"&gt;Cancel&lt;/button&gt;
-      &lt;button&gt;Delete project&lt;/button&gt;
+      &lt;button data-tone="error"&gt;Delete project&lt;/button&gt;
     &lt;/footer&gt;
   &lt;/form&gt;
 &lt;/dialog&gt;</code></pre>
@@ -218,6 +218,29 @@
   &lt;/nav&gt;
   &lt;p&gt;© 2026 Lumen Labs&lt;/p&gt;
 &lt;/footer&gt;</code></pre>
+    <h3 id="gallery">Photo gallery</h3>
+    <p>linked photos in a grid of figures. TagAction opens a photo in a viewer and steps through the section's photos with Previous, Next, and the arrow keys; without JavaScript each link opens the full-size photo. <a href="preview/gallery.html">Preview the photo gallery</a>.</p>
+    <pre><code>&lt;section&gt;
+  &lt;h2&gt;From the workshop&lt;/h2&gt;
+  &lt;div class="grid" style="--grid-min-column: 12rem"&gt;
+    &lt;figure&gt;
+      &lt;a href="https://picsum.photos/id/1060/1600/1200.jpg"&gt;&lt;img src="https://picsum.photos/id/1060/600/450.jpg" alt="A barista pouring milk into a cup" width="600" height="450" loading="lazy"&gt;&lt;/a&gt;
+      &lt;figcaption&gt;Morning pour&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+      &lt;a href="https://picsum.photos/id/1080/1600/1200.jpg"&gt;&lt;img src="https://picsum.photos/id/1080/600/450.jpg" alt="Strawberries in a bowl on a wooden table" width="600" height="450" loading="lazy"&gt;&lt;/a&gt;
+      &lt;figcaption&gt;Market haul&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+      &lt;a href="https://picsum.photos/id/1073/1600/1200.jpg"&gt;&lt;img src="https://picsum.photos/id/1073/600/450.jpg" alt="A row of books on a shelf" width="600" height="450" loading="lazy"&gt;&lt;/a&gt;
+      &lt;figcaption&gt;The reading shelf&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+      &lt;a href="https://picsum.photos/id/1067/1600/1200.jpg"&gt;&lt;img src="https://picsum.photos/id/1067/600/450.jpg" alt="A city street at dusk" width="600" height="450" loading="lazy"&gt;&lt;/a&gt;
+      &lt;figcaption&gt;Walk home&lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
     <h3 id="hero">Hero</h3>
     <p>the page header of a landing page, with a big promise, two calls to action, and a picture beside them. Replace the &lt;header&gt; of your page. <a href="preview/hero.html">Preview the hero</a>.</p>
     <pre><code>&lt;header&gt;
@@ -263,7 +286,7 @@
   &lt;article&gt;
     &lt;header&gt;
       &lt;h3&gt;Starter&lt;/h3&gt;
-      &lt;p&gt;&lt;strong&gt;$0&lt;/strong&gt; per month&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;$0&lt;/strong&gt; &lt;small&gt;per month&lt;/small&gt;&lt;/p&gt;
     &lt;/header&gt;
     &lt;ul&gt;
       &lt;li&gt;One client&lt;/li&gt;
@@ -275,7 +298,7 @@
   &lt;article&gt;
     &lt;header&gt;
       &lt;h3&gt;Pro &lt;mark data-tone="info"&gt;Most popular&lt;/mark&gt;&lt;/h3&gt;
-      &lt;p&gt;&lt;strong&gt;$12&lt;/strong&gt; per month&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;$12&lt;/strong&gt; &lt;small&gt;per month&lt;/small&gt;&lt;/p&gt;
     &lt;/header&gt;
     &lt;ul&gt;
       &lt;li&gt;Unlimited clients&lt;/li&gt;
@@ -287,7 +310,7 @@
   &lt;article&gt;
     &lt;header&gt;
       &lt;h3&gt;Studio&lt;/h3&gt;
-      &lt;p&gt;&lt;strong&gt;$29&lt;/strong&gt; per month&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;$29&lt;/strong&gt; &lt;small&gt;per month&lt;/small&gt;&lt;/p&gt;
     &lt;/header&gt;
     &lt;ul&gt;
       &lt;li&gt;Up to five people&lt;/li&gt;
@@ -297,6 +320,35 @@
     &lt;footer&gt;&lt;a class="button outline" href="/contact"&gt;Talk to us&lt;/a&gt;&lt;/footer&gt;
   &lt;/article&gt;
 &lt;/section&gt;</code></pre>
+    <h3 id="repeatable-rows">Repeatable rows</h3>
+    <p>a form where people add as many rows as they need and remove any of them (TagAction's --clone and --remove). Without JavaScript the first row still works and the Add and Remove buttons stay hidden. <a href="preview/repeatable-rows.html">Preview the repeatable rows</a>.</p>
+    <pre><code>&lt;form action="/expenses" method="post"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Expenses&lt;/legend&gt;
+    &lt;ol&gt;
+      &lt;li id="expense"&gt;
+        &lt;div role="group"&gt;
+          &lt;input name="what" aria-label="What it was for" placeholder="What it was for" required&gt;
+          &lt;input type="number" name="amount" aria-label="Amount in dollars" placeholder="Amount" min="0" step="0.01" required&gt;
+          &lt;button type="button" class="outline" data-tone="error" commandfor="expense" command="--remove" hidden&gt;Remove&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;template id="new-expense"&gt;
+        &lt;li id="expense"&gt;
+          &lt;div role="group"&gt;
+            &lt;input name="what" aria-label="What it was for" placeholder="What it was for" required&gt;
+            &lt;input type="number" name="amount" aria-label="Amount in dollars" placeholder="Amount" min="0" step="0.01" required&gt;
+            &lt;button type="button" class="outline" data-tone="error" commandfor="expense" command="--remove" hidden&gt;Remove&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/template&gt;
+    &lt;/ol&gt;
+  &lt;/fieldset&gt;
+  &lt;div role="group"&gt;
+    &lt;button type="button" class="secondary" commandfor="new-expense" command="--clone" hidden&gt;Add expense&lt;/button&gt;
+    &lt;button&gt;Submit report&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
     <h3 id="row-confirm">Row actions with a confirm dialog</h3>
     <p>each table row has a button that opens its own small dialog, which posts that row's action. One dialog per row works with no page script; put them after the table. data-tagaction="off" keeps the Actions column unsortable. <a href="preview/row-confirm.html">Preview the row actions with a confirm dialog</a>.</p>
     <pre><code>&lt;table&gt;

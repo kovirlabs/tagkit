@@ -104,10 +104,53 @@ test.describe('with TagAction', () => {
     await expect(page.locator('#account-menu')).toBeHidden();
   });
 
+  test('the gallery steps through its photos in the viewer', async ({ page }) => {
+    await open(page, 'preview/gallery.html');
+    await page.getByRole('link', { name: 'Strawberries in a bowl on a wooden table' }).click();
+    const viewer = page.locator('[data-tag="viewer"]');
+    await expect(viewer.locator('output')).toHaveText('2 of 4');
+    await page.keyboard.press('ArrowRight');
+    await expect(viewer.locator('figcaption')).toHaveText('The reading shelf');
+  });
+
+  test('the dashboard sidebar folds behind a Sections button on a phone', async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 800 });
+    await open(page, 'templates/dashboard.html');
+    await expect(page.getByRole('link', { name: 'Orders', exact: true })).toBeHidden();
+    await page.getByRole('button', { name: 'Sections' }).click();
+    await expect(page.getByRole('link', { name: 'Orders', exact: true })).toBeVisible();
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('button', { name: 'Sections' })).toBeHidden();
+    await expect(page.getByRole('link', { name: 'Orders', exact: true })).toBeVisible();
+  });
+
   test('the docs page builds its table of contents and code copy buttons', async ({ page }) => {
     await open(page, 'templates/docs.html');
     await expect(page.locator('nav[data-tag-toc] a')).toHaveText(['Requirements', 'Install', 'Check the install', 'Your first deploy']);
     await expect(page.getByRole('button', { name: 'Copy' })).toHaveCount(2);
+  });
+
+  test('repeatable rows: Add copies a row, Remove takes any row out, and focus follows', async ({ page }) => {
+    await open(page, 'preview/repeatable-rows.html');
+    const rows = page.locator('ol > li');
+    await page.getByRole('button', { name: 'Add expense' }).click();
+    await page.getByRole('button', { name: 'Add expense' }).click();
+    await expect(rows).toHaveCount(3);
+    await expect(page.getByRole('button', { name: 'Remove' })).toHaveCount(3);
+    await page.getByRole('button', { name: 'Remove' }).nth(1).click();
+    await expect(rows).toHaveCount(2);
+    await expect(page.getByLabel('What it was for').first()).toBeFocused();
+  });
+
+  test('the confirm dialog\'s destructive button is red', async ({ page }) => {
+    await open(page, 'preview/confirm-dialog.html');
+    await page.getByRole('button', { name: 'Delete project' }).click();
+    const [confirm, cancel] = [page.getByRole('dialog').getByRole('button', { name: 'Delete project' }), page.getByRole('dialog').getByRole('button', { name: 'Cancel' })];
+    const bg = (locator) => locator.evaluate((el) => getComputedStyle(el).backgroundColor);
+    const red = await page.evaluate(() => { const i = document.createElement('i'); i.style.color = 'oklch(from var(--color-error) min(l, 0.5) c h)'; document.body.append(i); return getComputedStyle(i).color; });
+    expect(await bg(confirm)).toBe(red);
+    expect(await bg(cancel)).not.toBe(red);
   });
 
   test('the sign-up form shows messages under fields and has a password toggle', async ({ page }) => {
@@ -125,7 +168,7 @@ test.describe('without JavaScript', () => {
     test(`${file}: nothing but TagAction-only controls is hidden, and dropdown lists show`, async ({ page }) => {
       await open(page, file, { javaScript: false });
       const hidden = await page.locator('body [hidden]').evaluateAll((els) => els.map((e) => e.outerHTML.slice(0, 100)));
-      for (const html of hidden) expect(html).toMatch(/command="--clone"|aria-controls=/);
+      for (const html of hidden) expect(html).toMatch(/command="--(clone|remove)"|aria-controls=/);
       for (const id of await page.locator('button[aria-expanded][aria-controls]').evaluateAll((els) => els.map((e) => e.getAttribute('aria-controls')))) {
         await expect(page.locator(`#${id}`)).toBeVisible();
       }
