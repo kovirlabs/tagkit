@@ -12,6 +12,8 @@ TagKit is part of the Tag family. Its HTML is styled by [TagBrush.css](https://g
 
 **Snippets** (`snippets/`): hero, feature grid, pricing table, testimonials, FAQ, card grid, stat tiles, page header, data table, search bar, confirm dialog, user menu, contact form, callouts, sidebar layout, docs layout, footer columns. Each file starts with a comment that says what it is and where it goes. Most go inside `<main>`; ones marked `(body)` are page-level.
 
+**Starter sites** (`starters/`): a whole multi-page site to copy and make your own. The [nonprofit starter](starters/nonprofit/) has 13 pages (home, about, programs, events, news, get involved, donate, contact, financials, privacy, 404), with donation and volunteer forms that work on any static host, built with `tagkit build`, checked with TagCheck, and published to GitHub Pages by an included workflow: `npx degit kovirlabs/tagkit/starters/nonprofit my-site`.
+
 **Themes**: a [Pandoc template](themes/pandoc/) that turns Markdown, Word, or AI-written documents into a styled page with one command, a [Jekyll theme for GitHub Pages](https://github.com/kovirlabs/tagkit-jekyll) used with one config line (`remote_theme: kovirlabs/tagkit-jekyll`), an [MkDocs theme](themes/mkdocs/) for documentation sites, a [Hugo theme](themes/hugo/) for blogs and sites, and a [WordPress block theme](https://github.com/kovirlabs/tagkit-wordpress).
 
 ## Build-time includes

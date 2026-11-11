@@ -74,6 +74,26 @@ test.describe('with TagAction', () => {
     await expect(page.getByRole('dialog')).toBeHidden();
   });
 
+  test('each table row opens its own confirm dialog, after sorting too, and without JavaScript', async ({ page, browser }) => {
+    await open(page, 'preview/row-confirm.html');
+    await page.getByRole('button', { name: 'Amount', exact: true }).click(); // sorting moves the rows, not the dialogs
+    await expect(page.getByRole('button', { name: 'Actions' })).toHaveCount(0); // unsortable column
+    await page.getByRole('button', { name: 'Void invoice #1041' }).click();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog).toHaveCount(1);
+    await expect(dialog).toContainText('Lumen Studio');
+    await expect(dialog.locator('form')).toHaveAttribute('action', '/invoices/1041/void');
+    await page.keyboard.press('Escape');
+    await expect(dialog).toHaveCount(0);
+
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const noJs = await context.newPage();
+    await open(noJs, 'preview/row-confirm.html');
+    await noJs.getByRole('button', { name: 'Void invoice #1040' }).click();
+    await expect(noJs.getByRole('dialog')).toContainText('North Fork Farm');
+    await context.close();
+  });
+
   test('the dashboard account menu drops down and closes with Escape', async ({ page }) => {
     await open(page, 'templates/dashboard.html');
     const button = page.getByRole('button', { name: 'Maya Lin' });

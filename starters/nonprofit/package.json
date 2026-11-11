@@ -1,0 +1,14 @@
+{
+  "name": "riverbend-food-share-site",
+  "private": true,
+  "description": "A static website for a small nonprofit, built from plain HTML with TagKit, TagBrush.css, TagAction, and TagCheck.",
+  "scripts": {
+    "build": "tagkit build site public --check",
+    "watch": "tagkit build site public --watch",
+    "check": "tagcheck public --browser"
+  },
+  "devDependencies": {
+    "@kovirlabs/tagcheck": "^0.1.1",
+    "@kovirlabs/tagkit": "^0.1.0"
+  }
+}
