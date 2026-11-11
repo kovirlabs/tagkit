@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+<title>Get involved · Riverbend Food Share</title>
+<meta name="description" content="Volunteer at the Saturday Market, drive deliveries, pack Weekend Bags, or run a food drive with Riverbend Food Share.">
+</head>
+<body>
+<header>
+  <!--#include virtual="/_includes/nav.html" -->
+</header>
+<main>
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a aria-current="page">Get involved</a></li>
+    </ol>
+  </nav>
+  <hgroup>
+    <h1>Get involved</h1>
+    <p>Six hundred neighbors give a few hours a month. There's a shift that fits your week.</p>
+  </hgroup>
+
+  <section>
+    <h2 id="ways">Ways to help</h2>
+    <article>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+      <h3>Volunteer a shift</h3>
+      <p>Stock shelves, greet shoppers, or check people out at the Saturday Market. Ages 14 and up.</p>
+    </article>
+    <article>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+      <h3>Drive deliveries</h3>
+      <p>Two hours on a Tuesday or Thursday, in your own car. We cover mileage on request.</p>
+    </article>
+    <article>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v13H4z"/><path d="M4 7l2-4h12l2 4"/><path d="M10 11h4"/></svg>
+      <h3>Run a food drive</h3>
+      <p>At work, school, or your place of worship. We lend the bins and pick up the food.</p>
+    </article>
+  </section>
+
+  <section>
+    <header>
+      <h2 id="volunteer">Sign up to volunteer</h2>
+      <button class="outline" commandfor="first-shift" command="show-modal">What to expect</button>
+    </header>
+    <article>
+      <!-- Replace the action with your own form address. Formspree, Basin, Getform, and Netlify Forms all accept a plain POST like this one. -->
+      <form action="https://formspree.io/f/your-volunteer-form-id" method="post">
+        <fieldset>
+          <legend>About you</legend>
+          <label for="volunteer-name">Name</label>
+          <input id="volunteer-name" name="name" autocomplete="name" required>
+          <label for="volunteer-email">Email</label>
+          <input type="email" id="volunteer-email" name="email" autocomplete="email" required>
+          <label for="volunteer-phone">Phone (optional)</label>
+          <input type="tel" id="volunteer-phone" name="phone" autocomplete="tel">
+          <small>Only for shift reminders. We never share it.</small>
+          <label><input type="checkbox" role="switch" name="text-reminders"> Text me a reminder the day before a shift</label>
+        </fieldset>
+        <fieldset>
+          <legend>When can you help?</legend>
+          <label><input type="checkbox" name="shift" value="market"> Saturday Market, 8:30–12:30</label>
+          <label><input type="checkbox" name="shift" value="delivery"> Delivery driving, Tuesday or Thursday</label>
+          <label><input type="checkbox" name="shift" value="packing"> Weekend Bags packing, Wednesday evenings</label>
+          <label><input type="checkbox" name="shift" value="drive"> I want to run a food drive</label>
+        </fieldset>
+        <fieldset>
+          <legend>Coming with others? (optional)</legend>
+          <ul>
+            <li><input aria-label="Name of someone coming with you" name="group-member"></li>
+            <template id="group-member">
+              <li><input aria-label="Name of someone coming with you" name="group-member"></li>
+            </template>
+          </ul>
+          <button type="button" class="outline" commandfor="group-member" command="--clone" hidden>Add another person</button>
+        </fieldset>
+        <label for="volunteer-notes">Anything we should know?</label>
+        <textarea id="volunteer-notes" name="notes" maxlength="500"></textarea>
+        <small>Languages you speak, access needs, or skills (forklift, Spanish, accounting…).</small>
+        <button>Send my sign-up</button>
+      </form>
+    </article>
+    <dialog id="first-shift">
+      <form method="dialog">
+        <header>
+          <h2>Your first shift</h2>
+          <button aria-label="Close">✕</button>
+        </header>
+        <p>Arrive ten minutes early and ask for the shift lead at the front desk. Wear closed-toe shoes. We'll give you an apron, a name tag, and a ten-minute tour before you start.</p>
+        <footer><button value="ok">Got it</button></footer>
+      </form>
+    </dialog>
+  </section>
+
+  <section data-tag-remember>
+    <h2 id="questions">Questions</h2>
+    <details name="volunteer-faq" id="faq-age" open>
+      <summary>How old do I need to be?</summary>
+      <p>14 for market shifts, or any age with a parent. Delivery drivers need to be 18 with a valid license and insurance.</p>
+    </details>
+    <details name="volunteer-faq" id="faq-hours">
+      <summary>Is there a minimum number of hours?</summary>
+      <p>No. Some people come every week; others come twice a year. Sign up for the shifts you can make.</p>
+    </details>
+    <details name="volunteer-faq" id="faq-service">
+      <summary>Can I get community service hours?</summary>
+      <p>Yes. We sign school and court service forms. Bring yours to the front desk at the end of your shift.</p>
+    </details>
+    <details name="volunteer-faq" id="faq-groups">
+      <summary>Can my company volunteer as a team?</summary>
+      <p>Yes, for groups of up to twelve on weekday packing nights. Add your teammates in the form above, or <a href="contact.html">write to us</a> for larger groups.</p>
+    </details>
+  </section>
+</main>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>

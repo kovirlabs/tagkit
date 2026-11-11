@@ -349,6 +349,48 @@
     &lt;button&gt;Submit report&lt;/button&gt;
   &lt;/div&gt;
 &lt;/form&gt;</code></pre>
+    <h3 id="row-confirm">Row actions with a confirm dialog</h3>
+    <p>each table row has a button that opens its own small dialog, which posts that row's action. One dialog per row works with no page script; put them after the table. data-tagaction="off" keeps the Actions column unsortable. <a href="preview/row-confirm.html">Preview the row actions with a confirm dialog</a>.</p>
+    <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Invoice&lt;/th&gt;&lt;th&gt;Client&lt;/th&gt;&lt;th&gt;Amount&lt;/th&gt;&lt;th data-tagaction="off"&gt;Actions&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;&lt;a href="/invoices/1042"&gt;#1042&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Harbor Bakery&lt;/td&gt;&lt;td&gt;&lt;data value="420"&gt;$420.00&lt;/data&gt;&lt;/td&gt;&lt;td&gt;&lt;button class="secondary" commandfor="void-1042" command="show-modal" aria-label="Void invoice #1042"&gt;Void&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;&lt;a href="/invoices/1041"&gt;#1041&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Lumen Studio&lt;/td&gt;&lt;td&gt;&lt;data value="1250"&gt;$1,250.00&lt;/data&gt;&lt;/td&gt;&lt;td&gt;&lt;button class="secondary" commandfor="void-1041" command="show-modal" aria-label="Void invoice #1041"&gt;Void&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;&lt;a href="/invoices/1040"&gt;#1040&lt;/a&gt;&lt;/td&gt;&lt;td&gt;North Fork Farm&lt;/td&gt;&lt;td&gt;&lt;data value="86.5"&gt;$86.50&lt;/data&gt;&lt;/td&gt;&lt;td&gt;&lt;button class="secondary" commandfor="void-1040" command="show-modal" aria-label="Void invoice #1040"&gt;Void&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;dialog id="void-1042"&gt;
+  &lt;form method="post" action="/invoices/1042/void"&gt;
+    &lt;h2&gt;Void invoice #1042?&lt;/h2&gt;
+    &lt;p&gt;Harbor Bakery won't be able to pay it. This can't be undone.&lt;/p&gt;
+    &lt;footer&gt;
+      &lt;button type="button" class="secondary" commandfor="void-1042" command="close"&gt;Cancel&lt;/button&gt;
+      &lt;button&gt;Void invoice&lt;/button&gt;
+    &lt;/footer&gt;
+  &lt;/form&gt;
+&lt;/dialog&gt;
+&lt;dialog id="void-1041"&gt;
+  &lt;form method="post" action="/invoices/1041/void"&gt;
+    &lt;h2&gt;Void invoice #1041?&lt;/h2&gt;
+    &lt;p&gt;Lumen Studio won't be able to pay it. This can't be undone.&lt;/p&gt;
+    &lt;footer&gt;
+      &lt;button type="button" class="secondary" commandfor="void-1041" command="close"&gt;Cancel&lt;/button&gt;
+      &lt;button&gt;Void invoice&lt;/button&gt;
+    &lt;/footer&gt;
+  &lt;/form&gt;
+&lt;/dialog&gt;
+&lt;dialog id="void-1040"&gt;
+  &lt;form method="post" action="/invoices/1040/void"&gt;
+    &lt;h2&gt;Void invoice #1040?&lt;/h2&gt;
+    &lt;p&gt;North Fork Farm won't be able to pay it. This can't be undone.&lt;/p&gt;
+    &lt;footer&gt;
+      &lt;button type="button" class="secondary" commandfor="void-1040" command="close"&gt;Cancel&lt;/button&gt;
+      &lt;button&gt;Void invoice&lt;/button&gt;
+    &lt;/footer&gt;
+  &lt;/form&gt;
+&lt;/dialog&gt;</code></pre>
     <h3 id="search-bar">Search bar</h3>
     <p>a search field with filters and a button in one row, sent to the server as a GET form. <a href="preview/search-bar.html">Preview the search bar</a>.</p>
     <pre><code>&lt;form action="/users" method="get"&gt;

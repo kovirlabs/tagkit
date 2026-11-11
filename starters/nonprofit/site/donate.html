@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+<title>Donate · Riverbend Food Share</title>
+<meta name="description" content="Give once or monthly to Riverbend Food Share. $50 feeds a family for a week. Gifts are tax-deductible.">
+</head>
+<body>
+<header>
+  <!--#include virtual="/_includes/nav.html" -->
+</header>
+<main>
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a aria-current="page">Donate</a></li>
+    </ol>
+  </nav>
+  <hgroup>
+    <h1>Feed a neighbor this week</h1>
+    <p>We buy food at wholesale prices, so every dollar you give goes three times as far as it would at the store.</p>
+  </hgroup>
+
+  <section>
+    <h2 id="give">Choose your gift</h2>
+    <article>
+      <!--
+        Replace the action with your donation page: a Stripe Payment Link, Givebutter, Donorbox, PayPal,
+        or your bank's giving page. Many accept the amount in the link (?amount=50); if yours doesn't,
+        replace this form with a plain link: <a class="button" href="https://…">Donate</a>.
+      -->
+      <form action="https://donate.stripe.com/your-payment-link" method="get">
+        <fieldset>
+          <legend>Amount</legend>
+          <label><input type="radio" name="amount" id="gift-25" value="25"> $25 buys milk for the Saturday Market for 20 families</label>
+          <label><input type="radio" name="amount" id="gift-50" value="50" checked> $50 feeds a family for a week</label>
+          <label><input type="radio" name="amount" id="gift-100" value="100"> $100 fills Weekend Bags for a classroom</label>
+          <label><input type="radio" name="amount" id="gift-250" value="250"> $250 keeps a delivery route running for a month</label>
+        </fieldset>
+        <label><input type="checkbox" name="cover-fees" id="gift-fees" value="3"> Add $3 to cover card fees, so all of my gift buys food</label>
+        <label><input type="checkbox" role="switch" name="monthly"> Make it monthly</label>
+        <p>Your gift: $<output for="gift-25 gift-50 gift-100 gift-250 gift-fees">50</output></p>
+        <p>You'll finish on our payment partner's page. We never see or store your card number.</p>
+        <button>Continue to secure payment</button>
+      </form>
+    </article>
+  </section>
+
+  <section>
+    <h2 id="impact">Where the money goes</h2>
+    <p>87 cents of every dollar we spend goes straight to food and programs. <a href="transparency.html">See the full budget</a>.</p>
+    <p><meter value="0.87" min="0" max="1" low="0.6" high="0.8" optimum="1" aria-label="Share of spending on programs">87%</meter> Programs: 87%</p>
+  </section>
+
+  <section>
+    <h2 id="other-ways">Other ways to give</h2>
+    <article>
+      <h3>By check</h3>
+      <p>Mail a check made out to Riverbend Food Share.</p>
+      <footer><button class="outline" commandfor="mail-a-check" command="show-modal">Our mailing address</button></footer>
+    </article>
+    <article>
+      <h3>Employer matching</h3>
+      <p>Many employers double their staff's gifts. Ask your HR team, and use our <abbr title="Employer Identification Number">EIN</abbr>, 00-0000000.</p>
+    </article>
+    <article>
+      <h3>Stock and donor-advised funds</h3>
+      <p>Give appreciated stock or recommend a grant from your fund. <a href="contact.html">Write to us</a> for transfer details.</p>
+    </article>
+    <article>
+      <h3>Food</h3>
+      <p>Drop off unopened food at 214 Mill Street, Monday to Friday, 9 to 4. Our most-needed list: peanut butter, canned fish, cooking oil, and diapers in sizes 4 to 6.</p>
+    </article>
+  </section>
+
+  <dialog id="mail-a-check">
+    <form method="dialog">
+      <header>
+        <h2>Mail a check</h2>
+        <button aria-label="Close">✕</button>
+      </header>
+      <address>Riverbend Food Share<br>214 Mill Street<br>Riverbend, ST 00000</address>
+      <p>Include your email address if you'd like a receipt for taxes.</p>
+      <footer><button value="ok">Done</button></footer>
+    </form>
+  </dialog>
+</main>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>

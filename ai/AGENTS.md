@@ -27,6 +27,10 @@ Share a header, nav, and footer between static pages without a framework. In eac
 
 Then build: `npx @kovirlabs/tagkit build site/ public/` (`--check` also runs TagCheck). `file="…"` is relative to the page and `virtual="/…"` to the site folder. Pages get their includes filled in; other files are copied; names starting with `_` are left out. Links to the page being built get `aria-current="page"`, and root links (`/about.html`) in included pieces become relative, so write links in shared pieces from the site root. Don't use JavaScript or iframes to include headers and footers.
 
+### Starter sites
+
+- [Nonprofit](https://github.com/kovirlabs/tagkit/tree/main/starters/nonprofit): a 13-page static site for a small nonprofit (home, about, programs, events, news, get involved, donate, contact, financials, privacy, 404). Copy it with `npx degit kovirlabs/tagkit/starters/nonprofit my-site`, then `npm install && npm run build` (writes `public/` and runs TagCheck). Shared pieces are in `site/_includes/` (`head.html` holds the brand color). Forms post to a form service such as Formspree and the donate form goes to a payment link; search for `your-` to find the addresses to replace. Includes a GitHub Pages workflow. Guide: https://raw.githubusercontent.com/kovirlabs/tagkit/main/starters/nonprofit/README.md
+
 ### Themes
 
 - [Pandoc template](https://raw.githubusercontent.com/kovirlabs/tagkit/main/themes/pandoc/template.html): turn Markdown, Word, or any Pandoc input into a styled page: `pandoc notes.md --standalone --toc --template https://raw.githubusercontent.com/kovirlabs/tagkit/main/themes/pandoc/template.html -o notes.html`. Front matter `primary-color` sets the brand color; `no-tagaction: true` leaves out the script. Add `--mathjax` for equations.
@@ -62,6 +66,7 @@ Then build: `npx @kovirlabs/tagkit build site/ public/` (`--check` also runs Tag
 - [Page header](https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/page-header.html): a title and subtitle with action buttons on the same row. Put it first in <main>.
 - [Pricing table](https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/pricing.html): three plans as cards, with a price, what's included, and a button.
 - [Repeatable rows](https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/repeatable-rows.html): a form where people add as many rows as they need and remove any of them (TagAction's --clone and --remove). Without JavaScript the first row still works and the Add and Remove buttons stay hidden.
+- [Row actions with a confirm dialog](https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/row-confirm.html): each table row has a button that opens its own small dialog, which posts that row's action. One dialog per row works with no page script; put them after the table. data-tagaction="off" keeps the Actions column unsortable.
 - [Search bar](https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/search-bar.html): a search field with filters and a button in one row, sent to the server as a GET form.
 - [Sidebar layout](https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/sidebar-layout.html) (page-level: goes directly in `<body>`): an app page with a full-height sidebar, a top bar, and the content beside it. This is the whole <body>.
 - [Stat tiles](https://raw.githubusercontent.com/kovirlabs/tagkit/main/snippets/stat-tiles.html): a row of key numbers with a change for each. A <dl> whose items are wrapped in <div>s becomes tiles.
