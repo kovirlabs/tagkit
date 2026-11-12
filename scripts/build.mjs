@@ -85,7 +85,7 @@ const gallery = `${HEAD('TagKit: templates and snippets in plain HTML', 'Copy-pa
   </hgroup>
 </header>
 <main>
-  <aside><nav data-tag-toc aria-label="On this page"></nav></aside>
+  <aside><nav data-tag-toc hidden aria-label="On this page"></nav></aside>
   <article>
     <h2 id="templates">Page templates</h2>
     <p>Complete pages. Open one, then copy its source.</p>
