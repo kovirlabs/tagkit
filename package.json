@@ -1,6 +1,6 @@
 {
   "name": "@kovirlabs/tagkit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Copy-paste page templates and snippets in plain semantic HTML, build-time includes for static sites, and Pandoc and Jekyll themes. Styled by TagBrush.css, enhanced by TagAction, checked by TagCheck. No classes to learn, no framework.",
   "keywords": [
     "html",
@@ -39,10 +39,10 @@
     "test": "playwright test"
   },
   "devDependencies": {
-    "@kovirlabs/tagcheck": "^0.1.1",
+    "@kovirlabs/tagcheck": "^0.1.2",
     "@playwright/test": "1.64.1",
     "tagaction": "^0.2.0",
-    "tagbrush": "1.2.0"
+    "tagbrush": "2.0.1"
   },
   "bin": {
     "tagkit": "bin/tagkit.mjs"

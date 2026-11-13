@@ -1,16 +1,18 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 (2026-11-12)
+
+Tested with TagBrush.css 2.0.1, TagAction 0.2.0, and TagCheck 0.1.2. Pages load `tagbrush@2` from the CDN.
 
 - New snippet: photo gallery, linked photos in a grid of figures that TagAction's viewer steps through (Previous, Next, arrow keys); asked for in the family evaluation, round 1.
 - The dashboard's sidebar folds behind a "Sections" button on phones (TagBrush.css's sidebar menu pattern): at 360px its whole link list used to sit between the top bar and the page.
 - Prices in the landing template and the pricing snippet are written `<strong>$12</strong> <small>per month</small>`, which TagBrush.css 2.0 shows as a large figure and a small muted period (1.x shows it as before).
-- New snippet: repeatable rows, a form where people add rows with TagAction's `--clone` and remove any of them with `--remove` (TagAction's next release). The Add and Remove buttons are written `hidden`, so without JavaScript the first row still works.
-- The confirm dialog's destructive button is red: `data-tone="error"` on the Delete button, and an outlined red opener (TagBrush.css's next release).
-- MkDocs theme: search. `search: titles` (the default) finds pages and sections by title from a box above the sidebar, filtered by TagAction 0.3's search-results list; `search: pagefind` uses Pagefind for full text; `search: false` leaves it out. The README no longer lists callouts as missing: TagBrush.css 1.2 styles `!!! note` once the `admonition` extension is on.
+- New snippet: repeatable rows, a form where people add rows with TagAction's `--clone` and remove any of them with `--remove` (TagAction 0.2). The Add and Remove buttons are written `hidden`, so without JavaScript the first row still works.
+- The confirm dialog's destructive button is red: `data-tone="error"` on the Delete button, and an outlined red opener (TagBrush.css 2.0).
+- MkDocs theme: search. `search: titles` (the default) finds pages and sections by title from a box above the sidebar, filtered by TagAction 0.2's search-results list; `search: pagefind` uses Pagefind for full text; `search: false` leaves it out. The README no longer lists callouts as missing: TagBrush.css 1.2 styles `!!! note` once the `admonition` extension is on.
 - A row-actions snippet (`snippets/row-confirm.html`): a button on each table row opens that row's own confirm dialog, which posts the row's action. One dialog per row works with no page script, and the Actions column stays unsortable. The orders agent in the family evaluation worked this out on its own; now it's a pattern to copy.
 - A nonprofit starter site (`starters/nonprofit/`): 13 pages for a small nonprofit, built with `tagkit build` from shared includes, with donation and volunteer forms for static hosts, sortable and filterable event and budget tables, a live gift total, dialogs, a popover, a remembered FAQ, and a GitHub Pages workflow that runs TagCheck before publishing. Copy it with `npx degit kovirlabs/tagkit/starters/nonprofit`. Tests build it and check every page with TagCheck (including contrast and phone overflow), TagAction, links, and JavaScript off.
-- Tested with TagBrush.css 1.2.0.
+- The table of contents in the docs template, the docs-layout snippet, and the nonprofit starter is written `<nav data-tag-toc hidden>`: TagAction 0.2 fills it and shows it, and readers without JavaScript don't get an empty menu.
 - The blog post template's lead photo opens in TagAction's viewer: its link now ends in `.jpg`, since TagAction only treats links to image files as photos. A test checks every linked photo. Found by the family agent evaluation.
 - The gallery (the GitHub Pages site) wears the Tag family brand: the family bar, the shared theme from kovirlabs.github.io/tagstack/brand.css, and a footer linking the family and the Jekyll and WordPress themes. The linked-photo test skips links that have text beside an image, like the family bar's.
 

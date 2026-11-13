@@ -59,7 +59,7 @@ test.describe('nonprofit starter', () => {
 
   test('loads the family CDN files and nothing else from a CDN', () => {
     const head = readFileSync(`${STARTER}/site/_includes/head.html`, 'utf8');
-    expect(head).toContain('https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css');
+    expect(head).toContain('https://cdn.jsdelivr.net/npm/tagbrush@2/tagbrush.min.css');
     expect(head).toContain('https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js');
     for (const path of pages) {
       const others = [...readFileSync(join(OUT, path), 'utf8').matchAll(/(?:src|href)="(https:\/\/cdn[^"]+)"/g)].map((m) => m[1]).filter((u) => !/tag(brush|action)@/.test(u));
@@ -124,7 +124,7 @@ test.describe('nonprofit starter', () => {
     for (const path of pages) {
       await open(page, path, { javaScript: false });
       const hidden = await page.locator('body [hidden]').evaluateAll((els) => els.map((e) => e.outerHTML.slice(0, 100)));
-      for (const html of hidden) expect(html, path).toMatch(/command="--clone"|aria-controls=/);
+      for (const html of hidden) expect(html, path).toMatch(/command="--clone"|aria-controls=|data-tag-toc/);
     }
     await context.close();
   });

@@ -28,7 +28,7 @@ test.describe('Pandoc template', () => {
   });
 
   test('the title block, contents beside the text, and TagAction behaviors', async ({ page }) => {
-    await page.route(/tagbrush@1/, (r) => r.fulfill({ path: 'node_modules/tagbrush/tagbrush.css', contentType: 'text/css' }));
+    await page.route(/tagbrush@2/, (r) => r.fulfill({ path: 'node_modules/tagbrush/tagbrush.css', contentType: 'text/css' }));
     await page.route(/tagaction@0/, (r) => r.fulfill({ path: 'node_modules/tagaction/tagaction.js', contentType: 'text/javascript' }));
     await page.goto(pathToFileURL(resolve(`${OUT}/example.html`)).href);
     await expect(page.locator('article > header h1')).toHaveText('Field notes on plain HTML');
@@ -59,7 +59,7 @@ test.describe('MkDocs theme', () => {
   });
 
   test('site nav marks the current page; the page has its own contents and prev/next links', async ({ page }) => {
-    await page.route(/tagbrush@1/, (r) => r.fulfill({ path: 'node_modules/tagbrush/tagbrush.css', contentType: 'text/css' }));
+    await page.route(/tagbrush@2/, (r) => r.fulfill({ path: 'node_modules/tagbrush/tagbrush.css', contentType: 'text/css' }));
     await page.route(/tagaction@0/, (r) => r.fulfill({ path: 'node_modules/tagaction/tagaction.js', contentType: 'text/javascript' }));
     await page.goto(pathToFileURL(resolve(`${SITE}/guide/install/index.html`)).href);
     await expect(page.locator('body > aside nav[aria-label="Documentation"] a[aria-current="page"]')).toHaveText('Install');
@@ -93,7 +93,7 @@ test.describe('Hugo theme', () => {
   });
 
   test('menu marks the section, the post has contents, dates, and older/newer links', async ({ page }) => {
-    await page.route(/tagbrush@1/, (r) => r.fulfill({ path: 'node_modules/tagbrush/tagbrush.css', contentType: 'text/css' }));
+    await page.route(/tagbrush@2/, (r) => r.fulfill({ path: 'node_modules/tagbrush/tagbrush.css', contentType: 'text/css' }));
     await page.route(/tagaction@0/, (r) => r.fulfill({ path: 'node_modules/tagaction/tagaction.js', contentType: 'text/javascript' }));
     await page.goto(pathToFileURL(resolve(`${SITE}/posts/a-year-of-saas/index.html`)).href);
     await expect(page.locator('header nav a[aria-current="page"]')).toHaveText('Posts');
