@@ -2,7 +2,7 @@
 
 ## 0.2.0 (2026-11-12)
 
-Tested with TagBrush.css 2.0.1, TagAction 0.2.0, and TagCheck 0.1.2. Pages load `tagbrush@2` from the CDN.
+Tested with TagBrush.css 2.0.1, TagAction 0.2.0, and TagCheck 0.1.3. Pages load `tagbrush@2` from the CDN.
 
 - New snippet: photo gallery, linked photos in a grid of figures that TagAction's viewer steps through (Previous, Next, arrow keys); asked for in the family evaluation, round 1.
 - The dashboard's sidebar folds behind a "Sections" button on phones (TagBrush.css's sidebar menu pattern): at 360px its whole link list used to sit between the top bar and the page.
