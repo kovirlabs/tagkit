@@ -56,7 +56,7 @@ test.describe('tagkit build', () => {
   test('the built site passes TagCheck and works from file://', async ({ page: browserPage }) => {
     const report = await checkFiles([OUT]);
     expect(report.files.flatMap((f) => f.problems.map((p) => `${f.file}:${p.line} ${p.rule}`))).toEqual([]);
-    await browserPage.route(/tagbrush@1|tagaction@0/, (r) => r.fulfill({ body: '' }));
+    await browserPage.route(/tagbrush@2|tagaction@0/, (r) => r.fulfill({ body: '' }));
     await browserPage.goto(pathToFileURL(resolve(`${OUT}/docs/install.html`)).href);
     await browserPage.getByRole('link', { name: 'About', exact: true }).click();
     await expect(browserPage.getByRole('heading', { level: 1 })).toHaveText('About Acme');

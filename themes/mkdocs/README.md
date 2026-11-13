@@ -32,7 +32,7 @@ The page is styled by [TagBrush.css](https://github.com/kovirlabs/tagbrush) and 
 
 ## Search
 
-- `search: titles` (the default) puts a search box above the sidebar that finds pages and their sections by title as you type. The theme writes a list of every page and `##` section into each page, and TagAction filters it, so there's no index to build and no script of its own. It needs TagAction 0.3 or later, and like everything TagAction adds, it's hidden when JavaScript is off. MkDocs' own search plugin isn't used; add `plugins: []` to skip building its index.
+- `search: titles` (the default) puts a search box above the sidebar that finds pages and their sections by title as you type. The theme writes a list of every page and `##` section into each page, and TagAction filters it, so there's no index to build and no script of its own. It needs TagAction 0.2 or later, and like everything TagAction adds, it's hidden when JavaScript is off. MkDocs' own search plugin isn't used; add `plugins: []` to skip building its index.
 - `search: pagefind` searches the full text with [Pagefind](https://pagefind.app/), which builds a static index after MkDocs: run `npx pagefind --site site` after `mkdocs build`. The theme loads Pagefind's search box from `pagefind/` and marks each page's article as the text to index.
 - `search: false` leaves search out.
 

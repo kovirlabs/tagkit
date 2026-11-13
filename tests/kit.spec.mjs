@@ -168,7 +168,7 @@ test.describe('without JavaScript', () => {
     test(`${file}: nothing but TagAction-only controls is hidden, and dropdown lists show`, async ({ page }) => {
       await open(page, file, { javaScript: false });
       const hidden = await page.locator('body [hidden]').evaluateAll((els) => els.map((e) => e.outerHTML.slice(0, 100)));
-      for (const html of hidden) expect(html).toMatch(/command="--(clone|remove)"|aria-controls=/);
+      for (const html of hidden) expect(html).toMatch(/command="--(clone|remove)"|aria-controls=|data-tag-toc/);
       for (const id of await page.locator('button[aria-expanded][aria-controls]').evaluateAll((els) => els.map((e) => e.getAttribute('aria-controls')))) {
         await expect(page.locator(`#${id}`)).toBeVisible();
       }
@@ -187,7 +187,7 @@ test.describe('catalog', () => {
   test('templates link the family CDN files and nothing else from a CDN', () => {
     for (const file of TEMPLATES) {
       const html = readFileSync(file, 'utf8');
-      expect(html, file).toContain('https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css');
+      expect(html, file).toContain('https://cdn.jsdelivr.net/npm/tagbrush@2/tagbrush.min.css');
       expect(html, file).toContain('https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js');
       const others = [...html.matchAll(/(?:src|href)="(https:\/\/cdn[^"]+)"/g)].map((m) => m[1]).filter((url) => !/tag(brush|action)@/.test(url));
       expect(others, file).toEqual([]);
@@ -195,7 +195,7 @@ test.describe('catalog', () => {
   });
 
   test('the CDN lines match the libraries\' own guides', () => {
-    expect(readFileSync('node_modules/tagbrush/llms.txt', 'utf8')).toContain('tagbrush@1/tagbrush.min.css');
+    expect(readFileSync('node_modules/tagbrush/llms.txt', 'utf8')).toContain('tagbrush@2/tagbrush.min.css');
     expect(readFileSync('node_modules/tagaction/llms.txt', 'utf8')).toContain('tagaction@0/tagaction.min.js');
   });
 

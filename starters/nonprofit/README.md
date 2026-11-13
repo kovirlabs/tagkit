@@ -57,7 +57,7 @@ The 404 page's links are relative, so they work for missing pages at the top lev
 
 ## Versions
 
-The pages load TagBrush.css 1.x and TagAction 0.x from jsDelivr, so they get fixes automatically. To lock exact versions, change `tagbrush@1` and `tagaction@0` in `site/_includes/head.html` to full versions such as `tagbrush@1.2.0`, and add `integrity` attributes if you want the browser to verify the files.
+The pages load TagBrush.css 2.x and TagAction 0.x from jsDelivr, so they get fixes automatically. To lock exact versions, change `tagbrush@2` and `tagaction@0` in `site/_includes/head.html` to full versions such as `tagbrush@1.2.0`, and add `integrity` attributes if you want the browser to verify the files.
 
 ## License
 

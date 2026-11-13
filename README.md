@@ -48,7 +48,7 @@ From code: `import { build } from '@kovirlabs/tagkit'; build('site', 'public')`.
 - TagAction runs on every page without errors, and the interactive parts work (sorting, filtering, dialogs, menus, validation, tables of contents).
 - With JavaScript off, every page is usable: only controls that need TagAction are hidden, and dropdown lists show.
 
-Tested with TagBrush.css 1.2.0 and TagAction 0.1.0.
+Tested with TagBrush.css 2.0.1 and TagAction 0.2.0.
 
 ## Coming next
 

@@ -24,7 +24,7 @@ const HEAD = (title, description) => `<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escape(title)}</title>
 <meta name="description" content="${escape(description).replace(/"/g, '&quot;')}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@2/tagbrush.min.css">
 <script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
 </head>`;
 
@@ -85,7 +85,7 @@ const gallery = `${HEAD('TagKit: templates and snippets in plain HTML', 'Copy-pa
   </hgroup>
 </header>
 <main>
-  <aside><nav data-tag-toc aria-label="On this page"></nav></aside>
+  <aside><nav data-tag-toc hidden aria-label="On this page"></nav></aside>
   <article>
     <h2 id="templates">Page templates</h2>
     <p>Complete pages. Open one, then copy its source.</p>
