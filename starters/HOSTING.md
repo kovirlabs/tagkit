@@ -78,7 +78,7 @@ The other free, Git-based editors show fields to fill in (title, date, body) and
 | [Publii](https://github.com/GetPublii/Publii) | Free, open source desktop app | Nothing; it runs on one computer | Builds its own site from its own themes; it doesn't open an existing HTML site |
 | [CloudCannon](https://cloudcannon.com/pricing/) | From $55 a month | A CloudCannon account | Visual editing; no free plan |
 
-A visual editor for plain semantic HTML, where you click the words on the page and save, is what [TagEdit](https://github.com/kovirlabs/tagedit) is being designed to be. It doesn't exist yet.
+A visual editor for plain semantic HTML, where you click the words on the page and save, is what [TagDraft](https://github.com/kovirlabs/tagdraft) is being designed to be. It doesn't exist yet.
 
 ## Programs for nonprofits
 
