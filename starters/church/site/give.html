@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+<title>Give · Cedar Hill Community Church</title>
+<meta name="description" content="Give online, by check, or by text to Cedar Hill Community Church, and see where the money goes.">
+</head>
+<body>
+<header>
+  <!--#include virtual="/_includes/nav.html" -->
+</header>
+<main>
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a aria-current="page">Give</a></li>
+    </ol>
+  </nav>
+  <hgroup>
+    <h1>Give</h1>
+    <p>Giving is how members and regulars keep the lights on and the pantry full. If you're a guest, please don't feel you should.</p>
+  </hgroup>
+
+  <section>
+    <h2 id="give">Give online</h2>
+    <article>
+      <!--
+        Replace the action with your giving page: Tithe.ly, Planning Center Giving, Pushpay, Givebutter,
+        a Stripe Payment Link, or PayPal. Many accept the amount in the link (?amount=50); if yours
+        doesn't, replace this form with a plain link: <a class="button" href="https://…">Give online</a>.
+      -->
+      <form action="https://donate.stripe.com/your-payment-link" method="get">
+        <fieldset>
+          <legend>Amount</legend>
+          <label><input type="radio" name="amount" id="gift-25" value="25"> $25</label>
+          <label><input type="radio" name="amount" id="gift-50" value="50" checked> $50</label>
+          <label><input type="radio" name="amount" id="gift-100" value="100"> $100</label>
+          <label><input type="radio" name="amount" id="gift-250" value="250"> $250</label>
+        </fieldset>
+        <label for="gift-fund">Fund</label>
+        <select id="gift-fund" name="fund">
+          <option value="general">General fund (tithes and offerings)</option>
+          <option value="missions">Missions</option>
+          <option value="benevolence">Benevolence (neighbors in need)</option>
+          <option value="building">Building fund</option>
+        </select>
+        <label><input type="checkbox" name="cover-fees" id="gift-fees" value="3"> Add $3 to cover card fees</label>
+        <label><input type="checkbox" role="switch" name="monthly"> Make it monthly</label>
+        <p>Your gift: $<output for="gift-25 gift-50 gift-100 gift-250 gift-fees">50</output></p>
+        <p>You'll finish on our giving partner's page. We never see or store your card number.</p>
+        <button>Continue to secure giving</button>
+      </form>
+    </article>
+  </section>
+
+  <section>
+    <h2 id="budget">Where the money goes</h2>
+    <p>The congregation approves the budget each January. So far this year we've received 82% of what the 2026 budget needs.</p>
+    <p><meter value="0.82" min="0" max="1" low="0.5" high="0.75" optimum="1" aria-label="Share of the 2026 budget received">82%</meter> 2026 budget received: 82%</p>
+    <figure>
+      <table class="striped">
+        <thead>
+          <tr><th>Area</th><th>2026 budget</th><th>Share</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Staff and pastoral care</td><td><data value="286000">$286,000</data></td><td><data value="44">44%</data></td></tr>
+          <tr><td>Building and utilities</td><td><data value="143000">$143,000</data></td><td><data value="22">22%</data></td></tr>
+          <tr><td>Kids, youth, and groups</td><td><data value="91000">$91,000</data></td><td><data value="14">14%</data></td></tr>
+          <tr><td>Missions and benevolence</td><td><data value="65000">$65,000</data></td><td><data value="10">10%</data></td></tr>
+          <tr><td>Worship and music</td><td><data value="39000">$39,000</data></td><td><data value="6">6%</data></td></tr>
+          <tr><td>Office and insurance</td><td><data value="26000">$26,000</data></td><td><data value="4">4%</data></td></tr>
+        </tbody>
+      </table>
+    </figure>
+  </section>
+
+  <section>
+    <h2 id="other-ways">Other ways to give</h2>
+    <article>
+      <h3>On Sunday</h3>
+      <p>Put cash or a check in the offering, or in the box by the sanctuary doors. Envelopes are in the pews. <a href="visit.html#times">Service times</a></p>
+    </article>
+    <article>
+      <h3>By mail</h3>
+      <p>Mail a check made out to Cedar Hill Community Church.</p>
+      <footer><button class="outline" commandfor="mail-a-check" command="show-modal">Our mailing address</button></footer>
+    </article>
+    <article>
+      <h3>Bank bill pay</h3>
+      <p>Set up the church as a payee with your bank and it will mail a check for free, once or every month. Use the <a href="contact.html#reach-us">church's address</a>.</p>
+    </article>
+    <article>
+      <h3>Stock and legacy gifts</h3>
+      <p>Give appreciated stock, or remember the church in your will. <a href="contact.html">Write to the office</a> for details.</p>
+    </article>
+  </section>
+
+  <aside data-tone="info"><strong>Giving statements</strong> for your taxes are mailed each January. Gifts are tax-deductible as allowed by law.</aside>
+
+  <dialog id="mail-a-check">
+    <form method="dialog">
+      <header>
+        <h2>Mail a check</h2>
+        <button aria-label="Close">✕</button>
+      </header>
+      <address>Cedar Hill Community Church<br>40 Orchard Road<br>Cedar Hill, ST 00000</address>
+      <p>Write the fund on the memo line if it's not for the general fund.</p>
+      <footer><button value="ok">Done</button></footer>
+    </form>
+  </dialog>
+</main>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>

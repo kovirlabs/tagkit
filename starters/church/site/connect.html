@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+<title>Connect · Cedar Hill Community Church</title>
+<meta name="description" content="Fill in a connect card, ask for prayer, join a small group, or find a place to serve at Cedar Hill Community Church.">
+</head>
+<body>
+<header>
+  <!--#include virtual="/_includes/nav.html" -->
+</header>
+<main>
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a aria-current="page">Connect</a></li>
+    </ol>
+  </nav>
+  <hgroup>
+    <h1>Connect</h1>
+    <p>Tell us who you are, how we can pray, or where you'd like to pitch in.</p>
+  </hgroup>
+
+  <section>
+    <h2 id="ways">Next steps</h2>
+    <article>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+      <h3>Join a small group</h3>
+      <p>Eight to twelve people, one evening a week, in a home near you. It's how a big room becomes a family.</p>
+    </article>
+    <article>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+      <h3>Serve on a team</h3>
+      <p>Greet at the door, rock babies in the nursery, run sound, or stock the pantry. Most teams serve once a month.</p>
+    </article>
+    <article>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></svg>
+      <h3>Be baptized or become a member</h3>
+      <p>Classes for both run three times a year. Tick the box below and a pastor will be in touch.</p>
+    </article>
+  </section>
+
+  <section>
+    <header>
+      <h2 id="card">Connect card</h2>
+      <button class="outline" commandfor="what-happens" command="show-modal">What happens next</button>
+    </header>
+    <article>
+      <!-- Replace the action with your own form address. Formspree, Basin, Getform, and Netlify Forms all accept a plain POST like this one. -->
+      <form action="https://formspree.io/f/your-connect-form-id" method="post">
+        <fieldset>
+          <legend>About you</legend>
+          <label for="connect-name">Name</label>
+          <input id="connect-name" name="name" autocomplete="name" required>
+          <label for="connect-email">Email</label>
+          <input type="email" id="connect-email" name="email" autocomplete="email" required>
+          <label for="connect-phone">Phone (optional)</label>
+          <input type="tel" id="connect-phone" name="phone" autocomplete="tel">
+          <small>Only so a pastor can call you back. We never share it.</small>
+          <label><input type="checkbox" role="switch" name="weekly-email"> Send me the weekly email</label>
+        </fieldset>
+        <fieldset>
+          <legend>I'd like to</legend>
+          <label><input type="checkbox" name="interest" value="visit"> Visit this Sunday (meet me at the door)</label>
+          <label><input type="checkbox" name="interest" value="group"> Join a small group</label>
+          <label><input type="checkbox" name="interest" value="serve"> Serve on a team</label>
+          <label><input type="checkbox" name="interest" value="baptism"> Talk about baptism or membership</label>
+          <label><input type="checkbox" name="interest" value="pastor"> Talk with a pastor</label>
+        </fieldset>
+        <fieldset>
+          <legend>Who's coming with you? (optional)</legend>
+          <ul>
+            <li><input aria-label="Name and age of someone coming with you" name="family-member"></li>
+            <template id="family-member">
+              <li><input aria-label="Name and age of someone coming with you" name="family-member"></li>
+            </template>
+          </ul>
+          <button type="button" class="outline" commandfor="family-member" command="--clone" hidden>Add another person</button>
+          <small>Children's ages help us have the right Cedar Kids room ready.</small>
+        </fieldset>
+        <label for="connect-notes">Anything we should know?</label>
+        <textarea id="connect-notes" name="notes" maxlength="500"></textarea>
+        <small>Your neighborhood, free evenings, access needs, or skills you'd like to use.</small>
+        <button>Send my card</button>
+      </form>
+    </article>
+    <dialog id="what-happens">
+      <form method="dialog">
+        <header>
+          <h2>What happens next</h2>
+          <button aria-label="Close">✕</button>
+        </header>
+        <p>Joel in the church office reads every card on Monday morning and passes it to the right person. You'll hear back by email within three days. We won't add you to any list you didn't ask for.</p>
+        <footer><button value="ok">Got it</button></footer>
+      </form>
+    </dialog>
+  </section>
+
+  <section>
+    <h2 id="prayer">Ask for prayer</h2>
+    <p>Our prayer team prays through every request on Wednesday night. Leave your name off if you'd rather.</p>
+    <article>
+      <!-- Replace the action with your own form address. -->
+      <form action="https://formspree.io/f/your-prayer-form-id" method="post">
+        <label for="prayer-name">Name (optional)</label>
+        <input id="prayer-name" name="name" autocomplete="name">
+        <label for="prayer-request">How can we pray for you?</label>
+        <textarea id="prayer-request" name="request" maxlength="1000" required></textarea>
+        <fieldset>
+          <legend>Who may see this?</legend>
+          <label><input type="radio" name="share" value="pastors" checked> Pastors only</label>
+          <label><input type="radio" name="share" value="team"> Pastors and the prayer team</label>
+          <label><input type="radio" name="share" value="church"> The whole church, in the weekly email</label>
+        </fieldset>
+        <button>Send my request</button>
+      </form>
+    </article>
+    <aside data-tone="warning"><strong>In an emergency,</strong> call 911. To reach a pastor urgently, call the church office at <a href="tel:+15550100300">(555) 010-0300</a> and press 2.</aside>
+  </section>
+</main>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>

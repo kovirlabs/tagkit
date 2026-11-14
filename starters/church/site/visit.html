@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+<title>Plan a visit · Cedar Hill Community Church</title>
+<meta name="description" content="Service times, directions, parking, what to wear, and what happens with your kids on a first visit to Cedar Hill Community Church.">
+</head>
+<body>
+<header>
+  <!--#include virtual="/_includes/nav.html" -->
+</header>
+<main>
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a aria-current="page">Plan a visit</a></li>
+    </ol>
+  </nav>
+  <header>
+    <hgroup>
+      <h1>Plan a visit</h1>
+      <p>Walking into a new church can be awkward. Here's everything you'd want to know first.</p>
+    </hgroup>
+    <div role="group">
+      <button class="outline" commandfor="first-sunday" command="show-modal">What a service is like</button>
+      <a class="button" href="connect.html#card">Tell us you're coming</a>
+    </div>
+  </header>
+
+  <dialog id="first-sunday">
+    <form method="dialog">
+      <header>
+        <h2>What a service is like</h2>
+        <button aria-label="Close">✕</button>
+      </header>
+      <p>Services last about 70 minutes. We sing for twenty minutes, pray, hear a 30-minute sermon from the Bible, and share communion on the first Sunday of the month. Nobody will ask you to stand up, introduce yourself, or give money.</p>
+      <footer><button value="ok">Got it</button></footer>
+    </form>
+  </dialog>
+
+  <!-- Service times appear here, on the home page, and in _includes/footer.html. Change all three together. -->
+  <section>
+    <h2 id="times">Service times</h2>
+    <figure>
+      <table class="striped">
+        <thead>
+          <tr><th>Gathering</th><th>When</th><th>Where</th><th>Good to know</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Traditional worship</td><td>Sundays, 9:00 AM</td><td>Sanctuary</td><td><mark data-tone="neutral">Hymns and choir</mark></td></tr>
+          <tr><td>Contemporary worship</td><td>Sundays, 11:00 AM</td><td>Sanctuary</td><td><mark data-tone="info">Streamed online</mark></td></tr>
+          <tr><td>Cedar Kids</td><td>Sundays, 9:00 and 11:00 AM</td><td>Children's wing</td><td><mark data-tone="success">Nursery to grade 5</mark></td></tr>
+          <tr><td>Midweek prayer</td><td>Wednesdays, 7:00 PM</td><td>Chapel</td><td><mark data-tone="neutral">30 minutes</mark></td></tr>
+        </tbody>
+      </table>
+    </figure>
+    <aside data-tone="info"><strong>Can't come in person?</strong> The 11:00 service is streamed live and posted on the <a href="sermons/index.html">sermons page</a> by Sunday evening.</aside>
+  </section>
+
+  <section>
+    <h2 id="find-us">Find us</h2>
+    <article>
+      <h3>Address</h3>
+      <address>40 Orchard Road<br>Cedar Hill, ST 00000</address>
+      <!-- Replace with a link to your own address on a map. -->
+      <p><a href="https://www.openstreetmap.org/search?query=40%20Orchard%20Road">Open in a map</a></p>
+    </article>
+    <article>
+      <h3>Parking</h3>
+      <p>Park in the main lot off Orchard Road. The row nearest the door is kept for first-time guests and for anyone who needs a short walk.</p>
+    </article>
+    <article>
+      <h3>Access</h3>
+      <p>The building is step-free, with accessible restrooms, large-print bulletins, and a hearing loop in the sanctuary. Ask any greeter for help.</p>
+    </article>
+  </section>
+
+  <section data-tag-remember>
+    <h2 id="questions">Questions people ask</h2>
+    <details name="visit-faq" id="faq-wear" open>
+      <summary>What should I wear?</summary>
+      <p>Whatever you'd wear to meet a friend for lunch. You'll see jeans and you'll see ties; nobody minds either.</p>
+    </details>
+    <details name="visit-faq" id="faq-kids">
+      <summary>What about my kids?</summary>
+      <p>Children are welcome to stay with you, or to join Cedar Kids. Check them in at the desk in the children's wing ten minutes early; you'll get a matching tag to pick them up. Every leader is background-screened.</p>
+    </details>
+    <details name="visit-faq" id="faq-money">
+      <summary>Will I be asked for money?</summary>
+      <p>No. There's an offering for members and regulars, and guests are told to let it pass by.</p>
+    </details>
+    <details name="visit-faq" id="faq-believe">
+      <summary>Do I have to believe what you believe?</summary>
+      <p>No. Plenty of people here are still working out what they think. You can read <a href="beliefs.html">what we believe</a>, and bring your questions.</p>
+    </details>
+    <details name="visit-faq" id="faq-communion">
+      <summary>Can I take communion?</summary>
+      <p>Communion is for anyone who trusts in Jesus, whatever church you come from. If that's not you yet, you're welcome to stay seated; nobody will notice.</p>
+    </details>
+  </section>
+</main>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>
