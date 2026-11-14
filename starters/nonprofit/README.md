@@ -53,6 +53,8 @@ Run `npm run build` after editing. It stops with an error if a page has a proble
 - **Netlify or Cloudflare Pages:** build command `npm run build`, publish directory `public`.
 - **Any web host:** run `npm run build` and upload the contents of `public/` by FTP or your host's file manager.
 
+[HOSTING.md](../HOSTING.md) compares the free hosts and form services, covers custom domains, and lists the free editing tools you can add later.
+
 The 404 page's links are relative, so they work for missing pages at the top level of the site (`/missing.html`) but not deeper ones (`/news/missing.html`).
 
 ## Versions

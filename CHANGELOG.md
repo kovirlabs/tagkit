@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- A church starter site (`starters/church/`): 14 pages for a congregation, built the same way as the nonprofit starter, with a plan-a-visit page, sermon pages, a connect card, a prayer request form that asks who may see it, a give form with a fund picker and live total, and comments marking what to edit each week. Copy it with `npx degit kovirlabs/tagkit/starters/church`. The starter tests now run their shared checks (TagCheck, contrast, phone overflow, links, TagAction, JavaScript off) on both starters.
+- `starters/HOSTING.md`: a guide to free hosting, form services, custom domains, and editing tools for the starter sites.
+
 ## 0.2.0 (2026-11-12)
 
 Tested with TagBrush.css 2.0.1, TagAction 0.2.0, and TagCheck 0.1.3. Pages load `tagbrush@2` from the CDN.

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+<title>Events · Cedar Hill Community Church</title>
+<meta name="description" content="Upcoming services, meals, classes, and serving days at Cedar Hill Community Church, including Advent and Christmas Eve.">
+</head>
+<body>
+<header>
+  <!--#include virtual="/_includes/nav.html" -->
+</header>
+<main>
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a aria-current="page">Events</a></li>
+    </ol>
+  </nav>
+  <header>
+    <hgroup>
+      <h1>Events</h1>
+      <p>Special services, shared meals, and days to serve. Bring a friend.</p>
+    </hgroup>
+    <div role="group">
+      <a class="button" href="connect.html#card">Sign up to help</a>
+    </div>
+  </header>
+
+  <section>
+    <h2 id="upcoming">Upcoming</h2>
+    <p>Times are shown in your own time zone. Click a column heading to sort. <button class="outline" popovertarget="access-info" aria-label="About access at our events">Access info</button></p>
+    <div popover id="access-info">
+      <p><strong>Access at our events:</strong> the building is step-free, with accessible restrooms and a hearing loop in the sanctuary. Ask the office about ASL interpretation at least a week ahead.</p>
+    </div>
+    <search>
+      <input type="search" aria-label="Filter events" aria-controls="events-table" placeholder="Filter events…" hidden>
+    </search>
+    <!--
+      EDIT AS EVENTS CHANGE: one <tr> per event. Delete rows once they've passed and add new ones.
+      The datetime is in UTC (the Z); the text is what visitors see if JavaScript is off.
+    -->
+    <figure>
+      <table id="events-table" class="striped">
+        <thead>
+          <tr><th>Event</th><th>Starts</th><th>Where</th><th>Kind</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Thanksgiving basket packing</td><td><time datetime="2026-11-22T18:30Z">Nov 22, 1:30 PM EST</time></td><td>Fellowship hall</td><td><mark data-tone="success">Serve</mark></td></tr>
+          <tr><td>Newcomers' lunch</td><td><time datetime="2026-11-22T17:15Z">Nov 22, 12:15 PM EST</time></td><td>Fellowship hall</td><td><mark data-tone="warning">Meal</mark></td></tr>
+          <tr><td>Thanksgiving Eve service</td><td><time datetime="2026-11-26T00:00Z">Nov 25, 7 PM EST</time></td><td>Sanctuary</td><td><mark data-tone="info">Worship</mark></td></tr>
+          <tr><td>Advent wreath-making for families</td><td><time datetime="2026-11-29T21:00Z">Nov 29, 4 PM EST</time></td><td>Fellowship hall</td><td><mark data-tone="neutral">Family</mark></td></tr>
+          <tr><td>Christmas carol sing and cocoa</td><td><time datetime="2026-12-13T22:00Z">Dec 13, 5 PM EST</time></td><td>Front lawn</td><td><mark data-tone="neutral">Family</mark></td></tr>
+          <tr><td>Christmas Eve family service</td><td><time datetime="2026-12-24T21:00Z">Dec 24, 4 PM EST</time></td><td>Sanctuary</td><td><mark data-tone="info">Worship</mark></td></tr>
+          <tr><td>Christmas Eve candlelight service</td><td><time datetime="2026-12-25T01:00Z">Dec 24, 8 PM EST</time></td><td>Sanctuary</td><td><mark data-tone="info">Worship</mark></td></tr>
+          <tr><td>Youth winter retreat</td><td><time datetime="2027-02-12T23:00Z">Feb 12, 6 PM EST</time></td><td>Camp Pinewood</td><td><mark data-tone="neutral">Youth</mark></td></tr>
+        </tbody>
+      </table>
+    </figure>
+  </section>
+
+  <section>
+    <h2 id="past">Earlier this year</h2>
+    <ul>
+      <li><time datetime="2026-10-25">October 25</time>: Harvest supper. 210 people, 34 pies, and not one left over.</li>
+      <li><time datetime="2026-08-30">August 30</time>: Backpack blessing and school-supply drive. 185 backpacks filled for Cedar Hill Elementary.</li>
+      <li><time datetime="2026-07-12">July 12</time>: Youth service trip. Nineteen students repaired four homes in a week.</li>
+      <li><time datetime="2026-04-05">April 5</time>: Easter sunrise service on the hill, followed by breakfast.</li>
+    </ul>
+  </section>
+</main>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>
